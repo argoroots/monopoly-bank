@@ -27,6 +27,7 @@ defineProps({
       v-for="(p, idx) in properties"
       :key="idx"
       :title="p.title"
+      :color="p.color"
     />
   </div>
 </template>
