@@ -23,14 +23,14 @@ defineProps({
 
 <template>
   <div
-    class="m-12 flex justify-center items-center"
+    class="m-8 flex justify-center items-center"
   >
     <div class="w-full h-80 p-3 bg-white shadow-lg">
       <div
         class="w-full h-full flex flex-col justify-center content-between text-center text-sm text-stone-900/80 border-2 border-stone-700 bg-white"
         :class="className"
       >
-        <div class="title w-full p-3 uppercase font-bold text-white bg-stone-700">
+        <div class="title w-full p-3 uppercase font-bold text-stone-700">
           {{ title }}
         </div>
         <div class="grow" />
@@ -45,7 +45,7 @@ defineProps({
 }
 
 .brown .title {
-  @apply bg-amber-900;
+  @apply text-white bg-amber-900;
 }
 
 .sky {
@@ -53,7 +53,7 @@ defineProps({
 }
 
 .sky .title {
-  @apply bg-sky-300;
+  @apply text-white bg-sky-300;
 }
 
 .purple {
@@ -61,7 +61,7 @@ defineProps({
 }
 
 .purple .title {
-  @apply bg-fuchsia-700;
+  @apply text-white bg-fuchsia-700;
 }
 
 .orange {
@@ -69,7 +69,7 @@ defineProps({
 }
 
 .orange .title {
-  @apply bg-orange-400;
+  @apply text-white bg-orange-400;
 }
 
 .red {
@@ -77,7 +77,7 @@ defineProps({
 }
 
 .red .title {
-  @apply bg-red-600;
+  @apply text-white bg-red-600;
 }
 
 .yellow {
@@ -85,7 +85,7 @@ defineProps({
 }
 
 .yellow .title {
-  @apply bg-yellow-300;
+  @apply text-white bg-yellow-300;
 }
 
 .green {
@@ -93,7 +93,7 @@ defineProps({
 }
 
 .green .title {
-  @apply bg-green-600;
+  @apply text-white bg-green-600;
 }
 
 .blue {
@@ -101,6 +101,6 @@ defineProps({
 }
 
 .blue .title {
-  @apply bg-blue-800;
+  @apply text-white bg-blue-800;
 }
 </style>
