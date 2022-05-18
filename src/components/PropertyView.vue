@@ -37,3 +37,37 @@ defineProps({
     </div>
   </div>
 </template>
+
+<style scoped>
+.brown {
+  @apply border-t-8 border-amber-900;
+}
+
+.sky {
+  @apply border-t-8 border-sky-300;
+}
+
+.purple {
+  @apply border-r-8 border-fuchsia-700;
+}
+
+.orange {
+  @apply border-r-8 border-orange-400;
+}
+
+.red {
+  @apply border-b-8 border-red-600;
+}
+
+.yellow {
+  @apply border-b-8 border-yellow-300;
+}
+
+.green {
+  @apply border-l-8 border-green-600;
+}
+
+.blue {
+  @apply border-l-8 border-blue-800;
+}
+</style>

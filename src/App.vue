@@ -1,7 +1,11 @@
 <script setup>
+import { ref } from 'vue'
+
 import PropertyView from '@/components/PropertyView.vue'
+import PropertyCard from '@/components/PropertyCard.vue'
 import MonopolyLogo from '@/components/MonopolyLogo.vue'
 
+const selectedProperty = ref()
 const properties = [
   {
     title: 'Go',
@@ -11,7 +15,7 @@ const properties = [
   },
   {
     title: 'Old Kent Road',
-    class: 'border-t-8 border-t-amber-900',
+    class: 'brown',
     row: 11,
     col: 10
   },
@@ -22,7 +26,7 @@ const properties = [
   },
   {
     title: 'Whitechapel Road',
-    class: 'border-t-8 border-t-amber-900',
+    class: 'brown',
     row: 11,
     col: 8
   },
@@ -38,7 +42,7 @@ const properties = [
   },
   {
     title: 'The Angel Islington',
-    class: 'border-t-8 border-t-sky-300',
+    class: 'sky',
     row: 11,
     col: 5
   },
@@ -49,13 +53,13 @@ const properties = [
   },
   {
     title: 'Euston Road',
-    class: 'border-t-8 border-t-sky-300',
+    class: 'sky',
     row: 11,
     col: 3
   },
   {
     title: 'Pentonville Road',
-    class: 'border-t-8 border-t-sky-300',
+    class: 'sky',
     row: 11,
     col: 2
   },
@@ -67,7 +71,7 @@ const properties = [
   },
   {
     title: 'Pall Mall',
-    class: 'border-r-8 border-r-fuchsia-700',
+    class: 'purple',
     row: 10,
     col: 1
   },
@@ -78,13 +82,13 @@ const properties = [
   },
   {
     title: 'Whitehall',
-    class: 'border-r-8 border-r-fuchsia-700',
+    class: 'purple',
     row: 8,
     col: 1
   },
   {
     title: 'Northumberland Avenue',
-    class: 'border-r-8 border-r-fuchsia-700',
+    class: 'purple',
     row: 7,
     col: 1
   },
@@ -95,7 +99,7 @@ const properties = [
   },
   {
     title: 'Bow Street',
-    class: 'border-r-8 border-r-orange-400',
+    class: 'orange',
     row: 5,
     col: 1
   },
@@ -106,13 +110,13 @@ const properties = [
   },
   {
     title: 'Marlborough Street',
-    class: 'border-r-8 border-r-orange-400',
+    class: 'orange',
     row: 3,
     col: 1
   },
   {
     title: 'Vine Street',
-    class: 'border-r-8 border-r-orange-400',
+    class: 'orange',
     row: 2,
     col: 1
   },
@@ -124,7 +128,7 @@ const properties = [
   },
   {
     title: 'The Strand',
-    class: 'border-b-8 border-b-red-600',
+    class: 'red',
     row: 1,
     col: 2
   },
@@ -135,13 +139,13 @@ const properties = [
   },
   {
     title: 'Fleet Street',
-    class: 'border-b-8 border-b-red-600',
+    class: 'red',
     row: 1,
     col: 4
   },
   {
     title: 'Trafalgar Square',
-    class: 'border-b-8 border-b-red-600',
+    class: 'red',
     row: 1,
     col: 5
   },
@@ -152,13 +156,13 @@ const properties = [
   },
   {
     title: 'Leicester Square',
-    class: 'border-b-8 border-b-yellow-300',
+    class: 'yellow',
     row: 1,
     col: 7
   },
   {
     title: 'Coventry Street',
-    class: 'border-b-8 border-b-yellow-300',
+    class: 'yellow',
     row: 1,
     col: 8
   },
@@ -169,7 +173,7 @@ const properties = [
   },
   {
     title: 'Piccadilly',
-    class: 'border-b-8 border-b-yellow-300',
+    class: 'yellow',
     row: 1,
     col: 10
   },
@@ -181,13 +185,13 @@ const properties = [
   },
   {
     title: 'Regent Street',
-    class: 'border-l-8 border-l-green-600',
+    class: 'green',
     row: 2,
     col: 11
   },
   {
     title: 'Oxford Street',
-    class: 'border-l-8 border-l-green-600',
+    class: 'green',
     row: 3,
     col: 11
   },
@@ -198,7 +202,7 @@ const properties = [
   },
   {
     title: 'Bond Street',
-    class: 'border-l-8 border-l-green-600',
+    class: 'green',
     row: 5,
     col: 11
   },
@@ -214,7 +218,7 @@ const properties = [
   },
   {
     title: 'Park Lane',
-    class: 'border-l-8 border-l-blue-800',
+    class: 'blue',
     row: 8,
     col: 11
   },
@@ -225,11 +229,15 @@ const properties = [
   },
   {
     title: 'Mayfair',
-    class: 'border-l-8 border-l-blue-800',
+    class: 'blue',
     row: 10,
     col: 11
   }
 ]
+
+function onPropertyClick (property) {
+  selectedProperty.value = property
+}
 </script>
 
 <template>
@@ -241,12 +249,28 @@ const properties = [
       :class-name="p.class"
       :row="p.row"
       :col="p.col"
+      @mouseover="onPropertyClick(p)"
     />
-    <div class="center">
-      <monopoly-logo />
-      <h1 class="text-3xl font-bold text-stone-900/80 tracking-wide">
-        Monopoly-O-Matic
-      </h1>
+    <div
+      class="center"
+      @click="onPropertyClick()"
+    >
+      <div class="flex flex-col justify-center items-center">
+        .
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <monopoly-logo />
+        <h1 class="text-2xl font-bold text-stone-900/80 tracking-wide">
+          Monopoly-O-Matic
+        </h1>
+      </div>
+      <Transition>
+        <property-card
+          v-if="selectedProperty"
+          :title="selectedProperty.title"
+          :class-name="selectedProperty.class"
+        />
+      </Transition>
     </div>
   </div>
 </template>
@@ -257,9 +281,20 @@ const properties = [
   grid-template-columns: repeat(11, minmax(0, 1fr));
   grid-template-rows: repeat(11, minmax(0, 1fr));
 }
+
 .center {
-  @apply flex flex-col justify-center items-center border border-white bg-emerald-100;
+  @apply grid grid-cols-3 border border-white bg-emerald-100;
   grid-row: span 9 / span 9;
   grid-column: span 9 / span 9;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
