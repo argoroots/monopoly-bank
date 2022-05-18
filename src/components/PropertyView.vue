@@ -6,13 +6,9 @@ defineProps({
     type: String,
     required: true
   },
-  color: {
+  className: {
     type: String,
     default: null
-  },
-  colorPosition: {
-    type: String,
-    required: true
   },
   row: {
     type: Number,
@@ -27,15 +23,15 @@ defineProps({
 
 <template>
   <div
-    class="border border-white bg-emerald-100 hover:bg-emerald-200 cursor-pointer"
+    class="border border-white bg-emerald-100 hover:bg-emerald-50 cursor-pointer"
     :style="{
       'grid-row': row,
       'grid-column': col
     }"
   >
     <div
-      class="w-full h-full flex justify-center items-center text-center text-xs"
-      :class="color"
+      class="w-full h-full flex justify-center items-center text-center text-sm text-stone-900/80 tracking-wide"
+      :class="className"
     >
       {{ title }}
     </div>
