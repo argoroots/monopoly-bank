@@ -30,7 +30,7 @@ defineProps({
     }"
   >
     <div
-      class="w-full h-full flex justify-center items-center text-center text-sm text-stone-900/80 tracking-wide"
+      class="w-full h-full p-2 flex justify-center items-center text-center text-sm text-stone-900/80 tracking-wide"
       :class="className"
     >
       {{ title }}
