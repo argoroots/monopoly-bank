@@ -1,16 +1,17 @@
 <script setup>
 import PropertyView from '@/components/PropertyView.vue'
+import MonopolyLogo from '@/components/MonopolyLogo.vue'
 
 const properties = [
   {
     title: 'Go',
+    class: 'font-bold',
     row: 11,
     col: 11
   },
   {
     title: 'Old Kent Road',
-    color: 'border-t-8 border-t-amber-900',
-    colorPosition: 'top',
+    class: 'border-t-8 border-t-amber-900',
     row: 11,
     col: 10
   },
@@ -21,8 +22,7 @@ const properties = [
   },
   {
     title: 'Whitechapel Road',
-    color: 'border-t-8 border-t-amber-900',
-    colorPosition: 'top',
+    class: 'border-t-8 border-t-amber-900',
     row: 11,
     col: 8
   },
@@ -38,8 +38,7 @@ const properties = [
   },
   {
     title: 'The Angel Islington',
-    color: 'border-t-8 border-t-sky-300',
-    colorPosition: 'top',
+    class: 'border-t-8 border-t-sky-300',
     row: 11,
     col: 5
   },
@@ -50,27 +49,25 @@ const properties = [
   },
   {
     title: 'Euston Road',
-    color: 'border-t-8 border-t-sky-300',
-    colorPosition: 'top',
+    class: 'border-t-8 border-t-sky-300',
     row: 11,
     col: 3
   },
   {
     title: 'Pentonville Road',
-    color: 'border-t-8 border-t-sky-300',
-    colorPosition: 'top',
+    class: 'border-t-8 border-t-sky-300',
     row: 11,
     col: 2
   },
   {
     title: 'Jail',
+    class: 'font-bold',
     row: 11,
     col: 1
   },
   {
     title: 'Pall Mall',
-    color: 'border-r-8 border-r-fuchsia-700',
-    colorPosition: 'right',
+    class: 'border-r-8 border-r-fuchsia-700',
     row: 10,
     col: 1
   },
@@ -81,15 +78,13 @@ const properties = [
   },
   {
     title: 'Whitehall',
-    color: 'border-r-8 border-r-fuchsia-700',
-    colorPosition: 'right',
+    class: 'border-r-8 border-r-fuchsia-700',
     row: 8,
     col: 1
   },
   {
     title: 'Northumberland Avenue',
-    color: 'border-r-8 border-r-fuchsia-700',
-    colorPosition: 'right',
+    class: 'border-r-8 border-r-fuchsia-700',
     row: 7,
     col: 1
   },
@@ -100,8 +95,7 @@ const properties = [
   },
   {
     title: 'Bow Street',
-    color: 'border-r-8 border-r-orange-400',
-    colorPosition: 'right',
+    class: 'border-r-8 border-r-orange-400',
     row: 5,
     col: 1
   },
@@ -112,27 +106,25 @@ const properties = [
   },
   {
     title: 'Marlborough Street',
-    color: 'border-r-8 border-r-orange-400',
-    colorPosition: 'right',
+    class: 'border-r-8 border-r-orange-400',
     row: 3,
     col: 1
   },
   {
     title: 'Vine Street',
-    color: 'border-r-8 border-r-orange-400',
-    colorPosition: 'right',
+    class: 'border-r-8 border-r-orange-400',
     row: 2,
     col: 1
   },
   {
     title: 'Free Parking',
+    class: 'font-bold',
     row: 1,
     col: 1
   },
   {
     title: 'The Strand',
-    color: 'border-b-8 border-b-red-600',
-    colorPosition: 'bottom',
+    class: 'border-b-8 border-b-red-600',
     row: 1,
     col: 2
   },
@@ -143,15 +135,13 @@ const properties = [
   },
   {
     title: 'Fleet Street',
-    color: 'border-b-8 border-b-red-600',
-    colorPosition: 'bottom',
+    class: 'border-b-8 border-b-red-600',
     row: 1,
     col: 4
   },
   {
     title: 'Trafalgar Square',
-    color: 'border-b-8 border-b-red-600',
-    colorPosition: 'bottom',
+    class: 'border-b-8 border-b-red-600',
     row: 1,
     col: 5
   },
@@ -162,15 +152,13 @@ const properties = [
   },
   {
     title: 'Leicester Square',
-    color: 'border-b-8 border-b-yellow-300',
-    colorPosition: 'bottom',
+    class: 'border-b-8 border-b-yellow-300',
     row: 1,
     col: 7
   },
   {
     title: 'Coventry Street',
-    color: 'border-b-8 border-b-yellow-300',
-    colorPosition: 'bottom',
+    class: 'border-b-8 border-b-yellow-300',
     row: 1,
     col: 8
   },
@@ -181,27 +169,25 @@ const properties = [
   },
   {
     title: 'Piccadilly',
-    color: 'border-b-8 border-b-yellow-300',
-    colorPosition: 'bottom',
+    class: 'border-b-8 border-b-yellow-300',
     row: 1,
     col: 10
   },
   {
     title: 'Go to Jail',
+    class: 'font-bold',
     row: 1,
     col: 11
   },
   {
     title: 'Regent Street',
-    color: 'border-l-8 border-l-green-600',
-    colorPosition: 'left',
+    class: 'border-l-8 border-l-green-600',
     row: 2,
     col: 11
   },
   {
     title: 'Oxford Street',
-    color: 'border-l-8 border-l-green-600',
-    colorPosition: 'left',
+    class: 'border-l-8 border-l-green-600',
     row: 3,
     col: 11
   },
@@ -212,8 +198,7 @@ const properties = [
   },
   {
     title: 'Bond Street',
-    color: 'border-l-8 border-l-green-600',
-    colorPosition: 'left',
+    class: 'border-l-8 border-l-green-600',
     row: 5,
     col: 11
   },
@@ -229,8 +214,7 @@ const properties = [
   },
   {
     title: 'Park Lane',
-    color: 'border-l-8 border-l-blue-800',
-    colorPosition: 'left',
+    class: 'border-l-8 border-l-blue-800',
     row: 8,
     col: 11
   },
@@ -241,8 +225,7 @@ const properties = [
   },
   {
     title: 'Mayfair',
-    color: 'border-l-8 border-l-blue-800',
-    colorPosition: 'left',
+    class: 'border-l-8 border-l-blue-800',
     row: 10,
     col: 11
   }
@@ -255,13 +238,15 @@ const properties = [
       v-for="(p, idx) in properties"
       :key="idx"
       :title="p.title"
-      :color="p.color"
-      :color-position="p.colorPosition"
+      :class-name="p.class"
       :row="p.row"
       :col="p.col"
     />
     <div class="center">
-      Monopoly-O-Matic
+      <monopoly-logo />
+      <h1 class="text-3xl font-bold text-stone-900/80 tracking-wide">
+        Monopoly-O-Matic
+      </h1>
     </div>
   </div>
 </template>
@@ -273,7 +258,7 @@ const properties = [
   grid-template-rows: repeat(11, minmax(0, 1fr));
 }
 .center {
-  @apply flex justify-center items-center border border-white bg-emerald-100;
+  @apply flex flex-col justify-center items-center border border-white bg-emerald-100;
   grid-row: span 9 / span 9;
   grid-column: span 9 / span 9;
 }
