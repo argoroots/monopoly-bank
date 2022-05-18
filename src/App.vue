@@ -1,24 +1,49 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import PropertyList from '@/components/PropertyList.vue'
+import CornerView from '@/components/CornerView.vue'
+
+const properties = [
+  { title: '' },
+  { title: '' },
+  { title: '' },
+  { title: '' },
+  { title: '' },
+  { title: '' },
+  { title: '' },
+  { title: '' },
+  { title: '' }
+]
 </script>
 
 <template>
-  <img
-    alt="Vue logo"
-    src="./assets/logo.png"
-  >
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div class="h-screen aspect-square mx-auto flex flex-col bg-emerald-50 border border-slate-700">
+    <div class="flex">
+      <corner-view title="Free Parking" />
+      <property-list :properties="properties" />
+      <corner-view title="Go to Jail" />
+    </div>
+
+    <div class="grow flex">
+      <property-list
+        :properties="properties"
+        is-vertical
+      />
+      <div class="grow flex justify-center items-center border border-slate-700 border-opacity-70">
+        <h1>Monopoly-O-Matic</h1>
+      </div>
+      <property-list
+        :properties="properties"
+        is-vertical
+      />
+    </div>
+
+    <div class="flex">
+      <corner-view title="Jail" />
+      <property-list :properties="properties" />
+      <corner-view title="Go" />
+    </div>
+  </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
