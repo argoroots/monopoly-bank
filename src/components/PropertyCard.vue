@@ -33,7 +33,20 @@ defineProps({
         <div class="title w-full p-3 uppercase font-bold text-stone-700">
           {{ title }}
         </div>
-        <div class="grow" />
+        <div class="grow flex flex-col divide-y divide-stone-200 text-stone-500">
+          <button class="p-2 flex-1 hover:bg-stone-100">
+            Sell it to Race Car for $40
+          </button>
+          <button class="p-2 flex-1 hover:bg-stone-100">
+            Get $4 for rent from Top Hat
+          </button>
+          <button class="p-2 flex-1 hover:bg-stone-100">
+            Mortgage property for $38
+          </button>
+          <button class="p-2 flex-1 hover:bg-stone-100">
+            Buy house for $8
+          </button>
+        </div>
       </div>
     </div>
   </div>
