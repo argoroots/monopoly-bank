@@ -23,7 +23,7 @@ defineProps({
 
 <template>
   <div
-    class="m-8 flex justify-center items-center"
+    class="m-10 flex justify-center items-center"
   >
     <div class="w-full h-80 p-3 bg-white shadow-lg">
       <div
