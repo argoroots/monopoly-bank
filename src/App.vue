@@ -33,6 +33,7 @@ const dataActions = [
       player.value.money = player.value.money - rent.value
       players.value[property.value.owner].money = player.value.money + rent.value
     },
+    hasRent: true,
     hasOwner: true
   },
   {
@@ -112,6 +113,10 @@ const rent = computed(() => {
 
 const actions = computed(() => dataActions.filter(action => {
   if (!action.types.includes(property.value.type)) {
+    return false
+  }
+
+  if (action.hasRent && property.value.owner === playerId.value) {
     return false
   }
 
