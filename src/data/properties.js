@@ -51,6 +51,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'station',
     group: 'station',
     class: 'border-t-8',
@@ -128,6 +129,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'utility',
     group: 'utility',
     class: 'border-r-8',
@@ -166,6 +168,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'station',
     group: 'station',
     class: 'border-r-8',
@@ -276,6 +279,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'station',
     group: 'station',
     class: 'border-b-8',
@@ -314,6 +318,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'utility',
     group: 'utility',
     class: 'border-b-8',
@@ -391,6 +396,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'station',
     group: 'station',
     class: 'border-l-8',
