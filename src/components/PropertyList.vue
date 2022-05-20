@@ -1,7 +1,6 @@
 <script setup>
-import { defineEmits, defineProps, ref } from 'vue'
+import { computed, defineEmits, defineProps } from 'vue'
 
-const selectedId = ref()
 const emit = defineEmits(['update:modelValue'])
 
 const props = defineProps({
@@ -15,21 +14,21 @@ const props = defineProps({
   }
 })
 
-function onClick (id) {
-  if (!props.properties[id].type) {
-    return
+const selectedId = computed({
+  get () {
+    return props.modelValue
+  },
+  set (val) {
+    emit('update:modelValue', val === props.modelValue ? null : val)
   }
-  selectedId.value = selectedId.value === id ? null : id
-
-  emit('update:modelValue', selectedId.value)
-}
+})
 </script>
 
 <template>
   <div
     v-for="(p, idx) in properties"
     :key="idx"
-    class="border border-white bg-emerald-100"
+    class="border border-white"
     :class="{
       'bg-emerald-50': selectedId === idx,
       'cursor-pointer hover:bg-emerald-50': p.type
@@ -38,7 +37,7 @@ function onClick (id) {
       'grid-row': p.row,
       'grid-column': p.col,
     }"
-    @click="onClick(idx)"
+    @click="selectedId = idx"
   >
     <div
       class="w-full h-full p-2 flex justify-center items-center text-center text-sm text-stone-900/80 tracking-wide"

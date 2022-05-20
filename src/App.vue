@@ -374,7 +374,7 @@ const players = ref([
 ])
 
 const propertyId = ref()
-const playerId = ref()
+const playerId = ref(0)
 
 const property = computed(() => properties.value[propertyId.value])
 
@@ -421,13 +421,13 @@ watch(propertyId, (newVal) => {
 
 <style>
 .board {
-  @apply h-full grid justify-center content-center border border-white;
+  @apply h-full grid justify-center content-center border border-white bg-emerald-100;
   grid-template-columns: repeat(11, minmax(0, 1fr));
   grid-template-rows: repeat(11, minmax(0, 1fr));
 }
 
 .center {
-  @apply grid grid-cols-3 border border-white bg-emerald-100;
+  @apply grid grid-cols-3 border border-white;
   grid-row: span 9 / span 9;
   grid-column: span 9 / span 9;
 }

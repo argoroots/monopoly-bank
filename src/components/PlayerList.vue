@@ -1,10 +1,9 @@
 <script setup>
-import { defineEmits, defineProps, ref } from 'vue'
+import { computed, defineEmits, defineProps } from 'vue'
 
-const selectedId = ref()
 const emit = defineEmits(['update:modelValue'])
 
-defineProps({
+const props = defineProps({
   modelValue: {
     type: Number,
     default: null
@@ -15,11 +14,14 @@ defineProps({
   }
 })
 
-function onClick (id) {
-  selectedId.value = selectedId.value === id ? null : id
-
-  emit('update:modelValue', selectedId.value)
-}
+const selectedId = computed({
+  get () {
+    return props.modelValue
+  },
+  set (val) {
+    emit('update:modelValue', val)
+  }
+})
 </script>
 
 <template>
@@ -31,7 +33,7 @@ function onClick (id) {
       :class="{
         'bg-emerald-50': selectedId === idx
       }"
-      @click="onClick(idx)"
+      @click="selectedId = idx"
     >
       <img
         :src="p.icon"
