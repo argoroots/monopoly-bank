@@ -20,6 +20,10 @@ const dataActions = [
   {
     types: ['property', 'station', 'utility'],
     label: () => `Sell it to ${player.value.name} for $${property.value.price}`,
+    action: () => {
+      player.value.money = player.value.money - property.value.price
+      property.value.owner = playerId
+    },
     noOwner: true
   },
   {
