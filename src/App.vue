@@ -118,12 +118,12 @@ const actions = computed(() => {
       if (total === 0) { return }
 
       result.push({
-        label: c.label.replace('#SUM', Math.abs(c.sum)).replace('#TOTAL', total).replace('#NAME', u.name),
+        label: c.label.replace('#SUM', Math.abs(c.sum)).replace('#TOTAL', Math.abs(total)).replace('#NAME', u.name),
         action: () => {
           if (c.type === 'chairman') {
             players.value.forEach((p, idx) => {
               if (idx !== playerId.value) {
-                p.balance += c.sum
+                p.balance += c.sum * -1
               }
             })
           }

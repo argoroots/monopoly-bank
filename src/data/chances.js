@@ -1,7 +1,7 @@
 export const allChances = [
   {
     label: 'Pay $#SUM dividend to #NAME',
-    sum: 50
+    sum: -50
   },
   {
     label: 'Collect $#TOTAL for repairs from #NAME',
@@ -9,7 +9,7 @@ export const allChances = [
   },
   {
     label: 'Collect $#SUM fine from #NAME',
-    sum: -15
+    sum: 15
   },
   {
     label: 'Transfer $#SUM to each player from #NAME (total $#TOTAL)',
@@ -18,7 +18,7 @@ export const allChances = [
   },
   {
     label: 'Pay $#SUM building loan to #NAME',
-    sum: 150
+    sum: -150
   }
 
 ]
