@@ -12,7 +12,10 @@ import { players as dataPlayers } from '@/data/players.js'
 const dataActions = [
   {
     types: ['go'],
-    label: () => `Pay salary $200 to ${player.value.name}`
+    label: () => `Pay salary $200 to ${player.value.name}`,
+    action: () => {
+      player.value.money = player.value.money + 200
+    }
   },
   {
     types: ['property', 'station', 'utility'],

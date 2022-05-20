@@ -34,6 +34,7 @@ defineProps({
             v-for="(action,idx) in actions"
             :key="idx"
             class="p-2 flex-1 hover:bg-stone-100"
+            @click="action.action"
           >
             {{ action.label() }}
           </button>
