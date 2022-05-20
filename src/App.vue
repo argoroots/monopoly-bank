@@ -50,6 +50,7 @@ const properties = ref([
   },
   {
     title: 'Kings Cross Station',
+    price: 200,
     row: 11,
     col: 6
   },
@@ -98,6 +99,7 @@ const properties = ref([
   },
   {
     title: 'Electric Company',
+    price: 150,
     row: 9,
     col: 1
   },
@@ -119,6 +121,7 @@ const properties = ref([
   },
   {
     title: 'Marylebone Station',
+    price: 200,
     row: 6,
     col: 1
   },
@@ -188,6 +191,7 @@ const properties = ref([
   },
   {
     title: 'Fenchurch St. Station',
+    price: 200,
     row: 1,
     col: 6
   },
@@ -209,6 +213,7 @@ const properties = ref([
   },
   {
     title: 'Water Works',
+    price: 150,
     row: 1,
     col: 9
   },
@@ -257,6 +262,7 @@ const properties = ref([
   },
   {
     title: 'Liverpool St. Station',
+    price: 200,
     row: 6,
     col: 11
   },
