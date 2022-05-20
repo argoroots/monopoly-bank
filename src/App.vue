@@ -22,7 +22,7 @@ const dataActions = [
     label: () => `Sell it to ${player.value.name} for $${property.value.price}`,
     action: () => {
       player.value.money = player.value.money - property.value.price
-      property.value.owner = playerId
+      property.value.owner = playerId.value
     },
     noOwner: true
   },
