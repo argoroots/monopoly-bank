@@ -3,6 +3,7 @@ export const properties = [
     type: 'go',
     group: 'corner',
     title: 'Go',
+    price: 200,
     row: 11,
     col: 11
   },
@@ -39,6 +40,7 @@ export const properties = [
   {
     type: 'tax',
     title: 'Income Tax',
+    price: 200,
     row: 11,
     col: 7
   },
@@ -387,6 +389,7 @@ export const properties = [
   {
     type: 'tax',
     title: 'Super Tax',
+    price: 100,
     row: 9,
     col: 11
   },

@@ -72,9 +72,18 @@ const actions = computed(() => {
 
   if (p.type === 'go') {
     result.push({
-      label: `Pay salary $200 to ${u.name}`,
+      label: `Pay salary $${p.price} to ${u.name}`,
       action: () => {
-        u.money = u.money + 200
+        u.money = u.money + p.price
+      }
+    })
+  }
+
+  if (p.type === 'tax') {
+    result.push({
+      label: `Get tax $${p.price} from ${u.name}`,
+      action: () => {
+        u.money = u.money - p.price
       }
     })
   }
@@ -82,7 +91,7 @@ const actions = computed(() => {
   if (['property', 'station', 'utility'].includes(p.type)) {
     if (p.owner === null) {
       result.push({
-        label: `Sell it to ${u.name} for $${p.price}`,
+        label: `Sell property to ${u.name} for $${p.price}`,
         action: () => {
           u.money = u.money - p.price
           p.owner = playerId.value
