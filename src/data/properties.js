@@ -21,6 +21,7 @@ export const properties = [
   },
   {
     type: 'chest',
+    group: 'event',
     title: 'Community Chest',
     row: 11,
     col: 9
@@ -39,6 +40,7 @@ export const properties = [
   },
   {
     type: 'tax',
+    group: 'event',
     title: 'Income Tax',
     price: 200,
     row: 11,
@@ -49,6 +51,7 @@ export const properties = [
     mortgage: false,
     type: 'station',
     group: 'station',
+    class: 'border-t-8',
     title: 'Kings Cross Station',
     price: 200,
     rent: [25, 50, 100, 200],
@@ -69,6 +72,7 @@ export const properties = [
   },
   {
     type: 'chance',
+    group: 'event',
     title: 'Chance',
     row: 11,
     col: 4
@@ -120,6 +124,7 @@ export const properties = [
     mortgage: false,
     type: 'utility',
     group: 'utility',
+    class: 'border-r-8',
     title: 'Electric Company',
     price: 150,
     rent: [4, 10],
@@ -155,6 +160,7 @@ export const properties = [
     mortgage: false,
     type: 'station',
     group: 'station',
+    class: 'border-r-8',
     title: 'Marylebone Station',
     price: 200,
     rent: [25, 50, 100, 200],
@@ -175,6 +181,7 @@ export const properties = [
   },
   {
     type: 'chest',
+    group: 'event',
     title: 'Community Chest',
     row: 4,
     col: 1
@@ -223,6 +230,7 @@ export const properties = [
   },
   {
     type: 'chance',
+    group: 'event',
     title: 'Chance',
     row: 1,
     col: 3
@@ -256,6 +264,7 @@ export const properties = [
     mortgage: false,
     type: 'station',
     group: 'station',
+    class: 'border-b-8',
     title: 'Fenchurch St. Station',
     price: 200,
     rent: [25, 50, 100, 200],
@@ -291,6 +300,7 @@ export const properties = [
     mortgage: false,
     type: 'utility',
     group: 'utility',
+    class: 'border-b-8',
     title: 'Water Works',
     price: 150,
     rent: [4, 10],
@@ -341,6 +351,7 @@ export const properties = [
   },
   {
     type: 'chest',
+    group: 'event',
     title: 'Community Chest',
     row: 4,
     col: 11
@@ -362,6 +373,7 @@ export const properties = [
     mortgage: false,
     type: 'station',
     group: 'station',
+    class: 'border-l-8',
     title: 'Liverpool St. Station',
     price: 200,
     rent: [25, 50, 100, 200],
@@ -370,6 +382,7 @@ export const properties = [
   },
   {
     type: 'chance',
+    group: 'event',
     title: 'Chance',
     row: 7,
     col: 11
@@ -388,6 +401,7 @@ export const properties = [
   },
   {
     type: 'tax',
+    group: 'event',
     title: 'Super Tax',
     price: 100,
     row: 9,

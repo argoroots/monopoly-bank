@@ -45,7 +45,7 @@ const selectedId = computed({
   >
     <div
       class="w-full h-full p-2 flex justify-center items-center text-center text-sm text-stone-900/80 tracking-wide"
-      :class="p.group"
+      :class="[p.group, p.class]"
     >
       {{ p.title }}
     </div>
@@ -57,8 +57,15 @@ const selectedId = computed({
   @apply font-extrabold uppercase;
 }
 
+.utility {
+  @apply border-white;
+}
 .brown {
   @apply border-t-8 border-amber-900;
+}
+
+.station {
+  @apply border-stone-800;
 }
 
 .sky {

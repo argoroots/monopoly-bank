@@ -26,7 +26,9 @@ defineProps({
         class="w-full h-full flex flex-col justify-center content-between text-center text-sm text-stone-900/80 border-2 border-stone-700 bg-white"
         :class="property.group"
       >
-        <div class="title w-full p-3 uppercase font-bold text-stone-700">
+        <div
+          class="title w-full p-3 uppercase font-bold text-stone-700"
+        >
           {{ property.title }}
         </div>
         <div class="grow flex flex-col divide-y divide-stone-200 text-stone-500">
@@ -45,18 +47,35 @@ defineProps({
 </template>
 
 <style scoped>
+.corner .title {
+  @apply border-b border-stone-200;
+}
+
+.event .title {
+  @apply border-b border-stone-200;
+}
+
+.utility .title {
+  @apply border-b border-stone-200;
+}
+
 .brown {
   @apply border-amber-900;
 }
-
 .brown .title {
   @apply text-white bg-amber-900;
+}
+
+.station {
+  @apply border-stone-800;
+}
+.station .title {
+  @apply text-white bg-stone-800;
 }
 
 .sky {
   @apply border-sky-300;
 }
-
 .sky .title {
   @apply text-white bg-sky-300;
 }
@@ -64,7 +83,6 @@ defineProps({
 .purple {
   @apply border-fuchsia-700;
 }
-
 .purple .title {
   @apply text-white bg-fuchsia-700;
 }
@@ -72,7 +90,6 @@ defineProps({
 .orange {
   @apply border-orange-400;
 }
-
 .orange .title {
   @apply text-white bg-orange-400;
 }
@@ -80,7 +97,6 @@ defineProps({
 .red {
   @apply border-red-600;
 }
-
 .red .title {
   @apply text-white bg-red-600;
 }
@@ -88,7 +104,6 @@ defineProps({
 .yellow {
   @apply border-yellow-300;
 }
-
 .yellow .title {
   @apply text-white bg-yellow-300;
 }
@@ -96,7 +111,6 @@ defineProps({
 .green {
   @apply border-green-600;
 }
-
 .green .title {
   @apply text-white bg-green-600;
 }
@@ -104,7 +118,6 @@ defineProps({
 .blue {
   @apply border-blue-800;
 }
-
 .blue .title {
   @apply text-white bg-blue-800;
 }
