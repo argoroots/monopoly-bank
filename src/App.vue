@@ -17,6 +17,7 @@ import DuckyIcon from '@/assets/icons/icons8-rubber-ducky-60.png'
 
 const properties = ref([
   {
+    type: 'go',
     title: 'Go',
     class: 'font-bold',
     row: 11,
@@ -396,6 +397,10 @@ const players = ref([
 ])
 
 const actions = ref([
+  {
+    types: ['go'],
+    label: () => `Pay salary $200 to ${player.value.name}`
+  },
   {
     types: ['property', 'station', 'utility'],
     label: () => `Sell it to ${player.value.name} for $${property.value.price}`
