@@ -1,13 +1,9 @@
 <script setup>
-import { defineProps } from 'vue'
+import { computed, defineProps } from 'vue'
 
-defineProps({
-  title: {
-    type: String,
-    required: true
-  },
-  className: {
-    type: String,
+const props = defineProps({
+  property: {
+    type: Object,
     default: null
   },
   player: {
@@ -15,6 +11,8 @@ defineProps({
     default: null
   }
 })
+
+const rentSum = computed(() => props.property.rent[props.property.houses || 0])
 </script>
 
 <template>
@@ -24,22 +22,22 @@ defineProps({
     <div class="w-full h-80 p-3 bg-white shadow-lg">
       <div
         class="w-full h-full flex flex-col justify-center content-between text-center text-sm text-stone-900/80 border-2 border-stone-700 bg-white"
-        :class="className"
+        :class="property.class"
       >
         <div class="title w-full p-3 uppercase font-bold text-stone-700">
-          {{ title }}
+          {{ property.title }}
         </div>
         <div class="grow flex flex-col divide-y divide-stone-200 text-stone-500">
           <template v-if="player">
             <button class="p-2 flex-1 hover:bg-stone-100">
-              Sell it to {{ player.name }} for $40
+              Sell it to {{ player.name }} for ${{ property.price }}
             </button>
             <button class="p-2 flex-1 hover:bg-stone-100">
-              Get $4 for rent from {{ player.name }}
+              Get ${{ rentSum }} for rent from {{ player.name }}
             </button>
           </template>
           <button class="p-2 flex-1 hover:bg-stone-100">
-            Mortgage property for $38
+            Mortgage property for ${{ property.price / 2 }}
           </button>
           <button class="p-2 flex-1 hover:bg-stone-100">
             Buy house for $8

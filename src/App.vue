@@ -25,6 +25,8 @@ const properties = ref([
   {
     title: 'Old Kent Road',
     class: 'brown',
+    price: 60,
+    rent: [2, 10, 30, 90, 160, 250],
     row: 11,
     col: 10
   },
@@ -36,6 +38,8 @@ const properties = ref([
   {
     title: 'Whitechapel Road',
     class: 'brown',
+    price: 60,
+    rent: [4, 20, 60, 180, 320, 450],
     row: 11,
     col: 8
   },
@@ -52,6 +56,8 @@ const properties = ref([
   {
     title: 'The Angel Islington',
     class: 'sky',
+    price: 100,
+    rent: [6, 30, 90, 270, 400, 550],
     row: 11,
     col: 5
   },
@@ -63,12 +69,16 @@ const properties = ref([
   {
     title: 'Euston Road',
     class: 'sky',
+    price: 100,
+    rent: [6, 30, 90, 270, 400, 550],
     row: 11,
     col: 3
   },
   {
     title: 'Pentonville Road',
     class: 'sky',
+    price: 120,
+    rent: [8, 40, 100, 300, 450, 600],
     row: 11,
     col: 2
   },
@@ -81,6 +91,8 @@ const properties = ref([
   {
     title: 'Pall Mall',
     class: 'purple',
+    price: 140,
+    rent: [10, 50, 150, 450, 625, 750],
     row: 10,
     col: 1
   },
@@ -92,12 +104,16 @@ const properties = ref([
   {
     title: 'Whitehall',
     class: 'purple',
+    price: 140,
+    rent: [10, 50, 150, 450, 625, 750],
     row: 8,
     col: 1
   },
   {
     title: 'Northumberland Avenue',
     class: 'purple',
+    price: 160,
+    rent: [12, 60, 180, 500, 700, 900],
     row: 7,
     col: 1
   },
@@ -109,6 +125,8 @@ const properties = ref([
   {
     title: 'Bow Street',
     class: 'orange',
+    price: 180,
+    rent: [14, 70, 200, 550, 750, 950],
     row: 5,
     col: 1
   },
@@ -120,12 +138,16 @@ const properties = ref([
   {
     title: 'Marlborough Street',
     class: 'orange',
+    price: 180,
+    rent: [14, 70, 200, 550, 750, 950],
     row: 3,
     col: 1
   },
   {
     title: 'Vine Street',
     class: 'orange',
+    price: 200,
+    rent: [16, 80, 220, 600, 800, 1000],
     row: 2,
     col: 1
   },
@@ -138,6 +160,8 @@ const properties = ref([
   {
     title: 'The Strand',
     class: 'red',
+    price: 220,
+    rent: [18, 90, 250, 700, 875, 1050],
     row: 1,
     col: 2
   },
@@ -149,12 +173,16 @@ const properties = ref([
   {
     title: 'Fleet Street',
     class: 'red',
+    price: 220,
+    rent: [18, 90, 250, 700, 875, 1050],
     row: 1,
     col: 4
   },
   {
     title: 'Trafalgar Square',
     class: 'red',
+    price: 240,
+    rent: [20, 100, 300, 750, 925, 1100],
     row: 1,
     col: 5
   },
@@ -166,12 +194,16 @@ const properties = ref([
   {
     title: 'Leicester Square',
     class: 'yellow',
+    price: 260,
+    rent: [22, 110, 330, 800, 975, 1150],
     row: 1,
     col: 7
   },
   {
     title: 'Coventry Street',
     class: 'yellow',
+    price: 260,
+    rent: [22, 110, 330, 800, 975, 1150],
     row: 1,
     col: 8
   },
@@ -183,6 +215,8 @@ const properties = ref([
   {
     title: 'Piccadilly',
     class: 'yellow',
+    price: 280,
+    rent: [22, 120, 360, 850, 1025, 1200],
     row: 1,
     col: 10
   },
@@ -195,12 +229,16 @@ const properties = ref([
   {
     title: 'Regent Street',
     class: 'green',
+    price: 300,
+    rent: [26, 130, 390, 900, 1100, 1275],
     row: 2,
     col: 11
   },
   {
     title: 'Oxford Street',
     class: 'green',
+    price: 300,
+    rent: [26, 130, 390, 900, 1100, 1275],
     row: 3,
     col: 11
   },
@@ -212,6 +250,8 @@ const properties = ref([
   {
     title: 'Bond Street',
     class: 'green',
+    price: 320,
+    rent: [28, 150, 450, 1000, 1200, 1400],
     row: 5,
     col: 11
   },
@@ -228,6 +268,8 @@ const properties = ref([
   {
     title: 'Park Lane',
     class: 'blue',
+    price: 350,
+    rent: [35, 175, 500, 1100, 1300, 1500],
     row: 8,
     col: 11
   },
@@ -239,6 +281,8 @@ const properties = ref([
   {
     title: 'Mayfair',
     class: 'blue',
+    price: 400,
+    rent: [50, 200, 600, 1400, 1700, 2000],
     row: 10,
     col: 11
   }
@@ -325,8 +369,7 @@ watch(propertyId, (newVal) => {
       <transition>
         <property-card
           v-if="property"
-          :title="property.title"
-          :class-name="property.class"
+          :property="property"
           :player="player"
         />
       </transition>
