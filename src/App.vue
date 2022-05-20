@@ -6,11 +6,12 @@ import PropertyList from '@/components/PropertyList.vue'
 import PropertyCard from '@/components/PropertyCard.vue'
 import PlayerList from '@/components/PlayerList.vue'
 
-import { properties as dataProperties } from '@/data/properties.js'
-import { players as dataPlayers } from '@/data/players.js'
+import { allProperties } from '@/data/properties.js'
+import { allPlayers } from '@/data/players.js'
 
-const properties = ref(dataProperties)
-const players = ref(dataPlayers)
+const properties = ref(allProperties)
+const players = ref(allPlayers)
+
 const propertyId = ref()
 const playerId = ref(0)
 const dice = ref(12)

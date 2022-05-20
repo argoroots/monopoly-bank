@@ -7,7 +7,7 @@ import TrexIcon from '@/assets/icons/icons8-dinosaur-60.png'
 import PenguinIcon from '@/assets/icons/icons8-penguin-60.png'
 import DuckyIcon from '@/assets/icons/icons8-rubber-ducky-60.png'
 
-export const players = [
+export const allPlayers = [
   {
     name: 'Top Hat',
     icon: HatIcon,
