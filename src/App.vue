@@ -83,7 +83,7 @@ const actions = computed(() => {
 
   if (p.type === 'go') {
     result.push({
-      label: `Pay salary $${p.price} to ${u.name}`,
+      label: `Pay $${p.price} salary to ${u.name}`,
       action: () => {
         u.balance = u.balance + p.price
       }
@@ -92,7 +92,7 @@ const actions = computed(() => {
 
   if (p.type === 'jail') {
     result.push({
-      label: `Collect fine $${p.price} from ${u.name}`,
+      label: `Collect $${p.price} fine from ${u.name}`,
       action: () => {
         u.balance = u.balance - p.price
       }
@@ -101,7 +101,7 @@ const actions = computed(() => {
 
   if (p.type === 'tax') {
     result.push({
-      label: `Get tax $${p.price} from ${u.name}`,
+      label: `Get $${p.price} tax from ${u.name}`,
       action: () => {
         u.balance = u.balance - p.price
       }
