@@ -1,39 +1,46 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineEmits, defineProps, ref } from 'vue'
+
+const selectedId = ref()
+const emit = defineEmits(['update:modelValue'])
 
 defineProps({
-  title: {
-    type: String,
-    required: true
-  },
-  className: {
-    type: String,
+  modelValue: {
+    type: Number,
     default: null
   },
-  row: {
-    type: Number,
-    required: true
-  },
-  col: {
-    type: Number,
+  properties: {
+    type: Array,
     required: true
   }
 })
+
+function onClick (id) {
+  selectedId.value = selectedId.value === id ? null : id
+
+  emit('update:modelValue', selectedId.value)
+}
 </script>
 
 <template>
   <div
+    v-for="(p, idx) in properties"
+    :key="idx"
     class="border border-white bg-emerald-100 hover:bg-emerald-50 cursor-pointer"
-    :style="{
-      'grid-row': row,
-      'grid-column': col
+    :class="{
+      'bg-emerald-50': selectedId === idx
     }"
+    :style="{
+      'grid-row': p.row,
+      'grid-column': p.col
+    }"
+    @click="onClick(idx)"
   >
     <div
       class="w-full h-full p-2 flex justify-center items-center text-center text-sm text-stone-900/80 tracking-wide"
-      :class="className"
+      :class="p.class"
     >
-      {{ title }}
+      {{ p.title }}
     </div>
   </div>
 </template>

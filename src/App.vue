@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 import MonopolyLogo from '@/components/MonopolyLogo.vue'
-import PropertyView from '@/components/PropertyView.vue'
+import PropertyList from '@/components/PropertyList.vue'
 import PropertyCard from '@/components/PropertyCard.vue'
-import PlayersList from '@/components/PlayersList.vue'
+import PlayerList from '@/components/PlayerList.vue'
 
 import HatIcon from '@/assets/icons/icons8-top-hat-60.png'
 import BattleshipIcon from '@/assets/icons/icons8-battleship-60.png'
@@ -15,8 +15,7 @@ import TrexIcon from '@/assets/icons/icons8-dinosaur-60.png'
 import PenguinIcon from '@/assets/icons/icons8-penguin-60.png'
 import DuckyIcon from '@/assets/icons/icons8-rubber-ducky-60.png'
 
-const selectedProperty = ref()
-const properties = [
+const properties = ref([
   {
     title: 'Go',
     class: 'font-bold',
@@ -243,7 +242,8 @@ const properties = [
     row: 10,
     col: 11
   }
-]
+])
+
 const players = ref([
   {
     name: 'Top Hat',
@@ -287,27 +287,33 @@ const players = ref([
   }
 ])
 
-function onPropertyClick (property) {
-  selectedProperty.value = property
-}
+const propertyId = ref()
+const playerId = ref()
+
+const property = computed(() => properties.value[propertyId.value])
+
+watch(playerId, (newVal) => {
+  console.log('playerId', newVal)
+})
+
+watch(propertyId, (newVal) => {
+  console.log('propertyId', newVal)
+})
 </script>
 
 <template>
   <div class="board">
-    <property-view
-      v-for="(p, idx) in properties"
-      :key="idx"
-      :title="p.title"
-      :class-name="p.class"
-      :row="p.row"
-      :col="p.col"
-      @mouseover="onPropertyClick(p)"
+    <property-list
+      v-model="propertyId"
+      :properties="properties"
     />
-    <div
-      class="center"
-      @click="onPropertyClick()"
-    >
-      <players-list :players="players" />
+
+    <div class="center">
+      <player-list
+        v-model="playerId"
+        :players="players"
+      />
+
       <div class="flex flex-col justify-center items-center">
         <monopoly-logo />
         <h1 class="text-2xl font-bold text-stone-900/80 tracking-wide">
@@ -316,9 +322,9 @@ function onPropertyClick (property) {
       </div>
       <transition>
         <property-card
-          v-if="selectedProperty"
-          :title="selectedProperty.title"
-          :class-name="selectedProperty.class"
+          v-if="property"
+          :title="property.title"
+          :class-name="property.class"
         />
       </transition>
     </div>

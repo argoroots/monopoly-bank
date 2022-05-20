@@ -9,14 +9,6 @@ defineProps({
   className: {
     type: String,
     default: null
-  },
-  row: {
-    type: Number,
-    required: true
-  },
-  col: {
-    type: Number,
-    required: true
   }
 })
 </script>
