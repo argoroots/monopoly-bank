@@ -31,7 +31,7 @@ const dataActions = [
     label: () => `Get $${rent.value} for rent from ${player.value.name}`,
     action: () => {
       player.value.money = player.value.money - rent.value
-      players.value[property.value.owner].money = player.value.money + rent.value
+      players.value[property.value.owner].money = players.value[property.value.owner].money + rent.value
     },
     hasRent: true,
     hasOwner: true
