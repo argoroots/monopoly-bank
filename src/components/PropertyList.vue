@@ -4,7 +4,7 @@ import { defineEmits, defineProps, ref } from 'vue'
 const selectedId = ref()
 const emit = defineEmits(['update:modelValue'])
 
-defineProps({
+const props = defineProps({
   modelValue: {
     type: Number,
     default: null
@@ -16,6 +16,9 @@ defineProps({
 })
 
 function onClick (id) {
+  if (!props.properties[id].type) {
+    return
+  }
   selectedId.value = selectedId.value === id ? null : id
 
   emit('update:modelValue', selectedId.value)
@@ -26,13 +29,14 @@ function onClick (id) {
   <div
     v-for="(p, idx) in properties"
     :key="idx"
-    class="border border-white bg-emerald-100 hover:bg-emerald-50 cursor-pointer"
+    class="border border-white bg-emerald-100"
     :class="{
-      'bg-emerald-50': selectedId === idx
+      'bg-emerald-50': selectedId === idx,
+      'cursor-pointer hover:bg-emerald-50': p.type
     }"
     :style="{
       'grid-row': p.row,
-      'grid-column': p.col
+      'grid-column': p.col,
     }"
     @click="onClick(idx)"
   >
