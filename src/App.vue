@@ -8,9 +8,11 @@ import PlayerList from '@/components/PlayerList.vue'
 
 import { allProperties } from '@/data/properties.js'
 import { allPlayers } from '@/data/players.js'
+import { allChances } from '@/data/chances.js'
 
 const properties = ref(allProperties)
 const players = ref(allPlayers)
+const chances = ref(allChances)
 
 const propertyId = ref()
 const playerId = ref(0)
@@ -100,6 +102,38 @@ const actions = computed(() => {
     })
   }
 
+  if (p.type === 'chance') {
+    chances.value.forEach(c => {
+      let total = c.sum
+
+      switch (c.type) {
+        case 'repairs':
+          total = properties.value.filter(p => p.owner === playerId.value && p.houses > 0 && p.houses < 5).map(p => p.houses).reduce((a, b) => a + b, 0) * 25 + properties.value.filter(p => p.owner === playerId.value && p.houses === 5).map(p => 1).reduce((a, b) => a + b, 0) * 100
+          break
+        case 'chairman':
+          total = c.sum * (players.value.length - 1)
+          break
+      }
+
+      if (total === 0) { return }
+
+      result.push({
+        label: c.label.replace('#SUM', Math.abs(c.sum)).replace('#TOTAL', total).replace('#NAME', u.name),
+        action: () => {
+          if (c.type === 'chairman') {
+            players.value.forEach((p, idx) => {
+              if (idx !== playerId.value) {
+                p.balance += c.sum
+              }
+            })
+          }
+
+          u.balance -= total
+        }
+      })
+    })
+  }
+
   if (p.type === 'tax') {
     result.push({
       label: `Collect $${p.price} tax from ${u.name}`,
@@ -159,7 +193,7 @@ const actions = computed(() => {
     if (avgHouses.value >= p.houses && p.houses < 5 && p.owner !== null && !p.mortgage && playerOwnsGroup.value) {
       result.push({
         disabled: pu.balance < p.housePrice,
-        label: p.houses < 4 ? `Sell house #${p.houses + 1} for $${p.housePrice}` : `Buy hotel for $${p.housePrice}`,
+        label: p.houses < 4 ? `Sell house #${p.houses + 1} for $${p.housePrice}` : `Sell hotel for $${p.housePrice}`,
         action: () => {
           pu.balance -= p.housePrice
           p.houses += 1
@@ -169,7 +203,7 @@ const actions = computed(() => {
 
     if (avgHouses.value <= p.houses && p.houses > 0 && p.owner !== null && !p.mortgage && playerOwnsGroup.value) {
       result.push({
-        label: p.houses < 5 ? `Buy back house #${p.houses} for $${p.housePrice / 2}` : `Sell hotel for $${p.housePrice / 2}`,
+        label: p.houses < 5 ? `Buy back house #${p.houses} for $${p.housePrice / 2}` : `Buy back hotel for $${p.housePrice / 2}`,
         action: () => {
           pu.balance += p.housePrice / 2
           p.houses -= 1
