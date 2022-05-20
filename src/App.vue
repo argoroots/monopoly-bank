@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 
 import MonopolyLogo from '@/components/MonopolyLogo.vue'
 import PropertyList from '@/components/PropertyList.vue'
@@ -142,14 +142,6 @@ const actions = computed(() => {
   }
 
   return result
-})
-
-watch(playerId, (newVal) => {
-  console.log('playerId', newVal)
-})
-
-watch(propertyId, (newVal) => {
-  console.log('propertyId', newVal)
 })
 </script>
 
