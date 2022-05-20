@@ -27,6 +27,16 @@ const sameGroupProperties = computed(() => {
   return properties.value.filter(p => p.group === property.value.group)
 })
 
+const maxHouses = computed(() => {
+  if (!property.value) {
+    return null
+  }
+
+  const houses = sameGroupProperties.value.map(p => p.houses)
+  const sum = houses.reduce((a, b) => a + b, 0)
+  return (sum / houses.length) || 0
+})
+
 const playerGroupProperties = computed(() => {
   if (!property.value) {
     return null
@@ -46,9 +56,9 @@ const rent = computed(() => {
 
   if (property.value.type === 'property') {
     if (playerOwnsGroup.value) {
-      return property.value.rent[property.value.houses || 0] * 2
+      return property.value.rent[property.value.houses] * 2
     } else {
-      return property.value.rent[property.value.houses || 0]
+      return property.value.rent[property.value.houses]
     }
   }
 
@@ -109,7 +119,7 @@ const actions = computed(() => {
       })
     }
 
-    if (p.owner !== null && !p.mortgage) {
+    if (p.owner !== null && !p.mortgage && p.houses === 0) {
       result.push({
         label: `Mortgage property for $${p.price / 2}`,
         action: () => {
@@ -131,14 +141,25 @@ const actions = computed(() => {
   }
 
   if (p.type === 'property') {
-    // result.push({
-    //   label: `Buy house for $${p.housePrice}`
+    if (maxHouses.value >= p.houses && p.houses < 5 && p.owner !== null && !p.mortgage && playerOwnsGroup.value) {
+      result.push({
+        label: p.houses < 4 ? `Buy house #${p.houses + 1} for $${p.housePrice}` : `Buy hotel for $${p.housePrice}`,
+        action: () => {
+          players.value[p.owner].money = players.value[p.owner].money - p.housePrice
+          p.houses = p.houses + 1
+        }
+      })
+    }
 
-    // })
-    // result.push({
-    //   label: `Sell house for $${p.housePrice / 2}`
-
-    // })
+    if (maxHouses.value <= p.houses && p.houses > 0 && p.owner !== null && !p.mortgage && playerOwnsGroup.value) {
+      result.push({
+        label: p.houses < 5 ? `Sell house #${p.houses} for $${p.housePrice / 2}` : `Sell hotel for $${p.housePrice / 2}`,
+        action: () => {
+          players.value[p.owner].money = players.value[p.owner].money + p.housePrice / 2
+          p.houses = p.houses - 1
+        }
+      })
+    }
   }
 
   return result

@@ -10,6 +10,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'brown',
     title: 'Old Kent Road',
@@ -29,6 +30,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'brown',
     title: 'Whitechapel Road',
@@ -61,6 +63,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'sky',
     title: 'The Angel Islington',
@@ -80,6 +83,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'sky',
     title: 'Euston Road',
@@ -92,6 +96,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'sky',
     title: 'Pentonville Road',
@@ -110,6 +115,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'purple',
     title: 'Pall Mall',
@@ -134,6 +140,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'purple',
     title: 'Whitehall',
@@ -146,6 +153,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'purple',
     title: 'Northumberland Avenue',
@@ -170,6 +178,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'orange',
     title: 'Bow Street',
@@ -189,6 +198,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'orange',
     title: 'Marlborough Street',
@@ -201,6 +211,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'orange',
     title: 'Vine Street',
@@ -219,6 +230,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'red',
     title: 'The Strand',
@@ -238,6 +250,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'red',
     title: 'Fleet Street',
@@ -250,6 +263,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'red',
     title: 'Trafalgar Square',
@@ -274,6 +288,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'yellow',
     title: 'Leicester Square',
@@ -286,6 +301,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'yellow',
     title: 'Coventry Street',
@@ -310,6 +326,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'yellow',
     title: 'Piccadilly',
@@ -328,6 +345,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'green',
     title: 'Regent Street',
@@ -340,6 +358,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'green',
     title: 'Oxford Street',
@@ -359,6 +378,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'green',
     title: 'Bond Street',
@@ -390,6 +410,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'blue',
     title: 'Park Lane',
@@ -410,6 +431,7 @@ export const properties = [
   {
     owner: null,
     mortgage: false,
+    houses: 0,
     type: 'property',
     group: 'blue',
     title: 'Mayfair',
