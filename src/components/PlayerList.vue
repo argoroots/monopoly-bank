@@ -27,7 +27,7 @@ function onClick (id) {
     <div
       v-for="(p, idx) in players"
       :key="idx"
-      class="py-2 px-1 flex flex-row justify-between items-center cursor-pointer"
+      class="py-2 px-1 flex flex-row justify-between items-center hover:bg-emerald-50 cursor-pointer"
       :class="{
         'bg-emerald-50': selectedId === idx
       }"

@@ -9,6 +9,10 @@ defineProps({
   className: {
     type: String,
     default: null
+  },
+  player: {
+    type: Object,
+    default: null
   }
 })
 </script>
@@ -26,18 +30,26 @@ defineProps({
           {{ title }}
         </div>
         <div class="grow flex flex-col divide-y divide-stone-200 text-stone-500">
-          <button class="p-2 flex-1 hover:bg-stone-100">
-            Sell it to Race Car for $40
-          </button>
-          <button class="p-2 flex-1 hover:bg-stone-100">
-            Get $4 for rent from Top Hat
-          </button>
+          <template v-if="player">
+            <button class="p-2 flex-1 hover:bg-stone-100">
+              Sell it to {{ player.name }} for $40
+            </button>
+            <button class="p-2 flex-1 hover:bg-stone-100">
+              Get $4 for rent from {{ player.name }}
+            </button>
+          </template>
           <button class="p-2 flex-1 hover:bg-stone-100">
             Mortgage property for $38
           </button>
           <button class="p-2 flex-1 hover:bg-stone-100">
             Buy house for $8
           </button>
+          <div
+            v-if="!player"
+            class="p-2 grow flex-1 flex justify-center items-center italic text-stone-300"
+          >
+            Select player for more actions...
+          </div>
         </div>
       </div>
     </div>

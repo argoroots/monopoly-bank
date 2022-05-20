@@ -292,6 +292,8 @@ const playerId = ref()
 
 const property = computed(() => properties.value[propertyId.value])
 
+const player = computed(() => players.value[playerId.value])
+
 watch(playerId, (newVal) => {
   console.log('playerId', newVal)
 })
@@ -325,6 +327,7 @@ watch(propertyId, (newVal) => {
           v-if="property"
           :title="property.title"
           :class-name="property.class"
+          :player="player"
         />
       </transition>
     </div>
