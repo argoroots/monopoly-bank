@@ -42,7 +42,12 @@ const selectedId = computed({
       <div class="grow ml-2">
         {{ p.name }}
       </div>
-      <div class="font-mono">
+      <div
+        class="font-mono"
+        :class="{
+          'text-red-700': p.money < 0
+        }"
+      >
         ${{ p.money }}
       </div>
     </div>
