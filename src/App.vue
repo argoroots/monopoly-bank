@@ -90,6 +90,15 @@ const actions = computed(() => {
     })
   }
 
+  if (p.type === 'jail') {
+    result.push({
+      label: `Collect fine $${p.price} from ${u.name}`,
+      action: () => {
+        u.balance = u.balance - p.price
+      }
+    })
+  }
+
   if (p.type === 'tax') {
     result.push({
       label: `Get tax $${p.price} from ${u.name}`,

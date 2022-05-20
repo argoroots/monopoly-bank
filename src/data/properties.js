@@ -108,8 +108,10 @@ export const properties = [
     col: 2
   },
   {
+    type: 'jail',
     group: 'corner',
     title: 'Jail',
+    price: 50,
     row: 11,
     col: 1
   },
