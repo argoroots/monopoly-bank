@@ -27,6 +27,7 @@ const properties = ref([
     title: 'Old Kent Road',
     class: 'brown',
     price: 60,
+    housePrice: 50,
     rent: [2, 10, 30, 90, 160, 250],
     row: 11,
     col: 10
@@ -42,6 +43,7 @@ const properties = ref([
     title: 'Whitechapel Road',
     class: 'brown',
     price: 60,
+    housePrice: 50,
     rent: [4, 20, 60, 180, 320, 450],
     row: 11,
     col: 8
@@ -64,6 +66,7 @@ const properties = ref([
     title: 'The Angel Islington',
     class: 'sky',
     price: 100,
+    housePrice: 50,
     rent: [6, 30, 90, 270, 400, 550],
     row: 11,
     col: 5
@@ -79,6 +82,7 @@ const properties = ref([
     title: 'Euston Road',
     class: 'sky',
     price: 100,
+    housePrice: 50,
     rent: [6, 30, 90, 270, 400, 550],
     row: 11,
     col: 3
@@ -88,6 +92,7 @@ const properties = ref([
     title: 'Pentonville Road',
     class: 'sky',
     price: 120,
+    housePrice: 50,
     rent: [8, 40, 100, 300, 450, 600],
     row: 11,
     col: 2
@@ -103,6 +108,7 @@ const properties = ref([
     title: 'Pall Mall',
     class: 'purple',
     price: 140,
+    housePrice: 100,
     rent: [10, 50, 150, 450, 625, 750],
     row: 10,
     col: 1
@@ -119,6 +125,7 @@ const properties = ref([
     title: 'Whitehall',
     class: 'purple',
     price: 140,
+    housePrice: 100,
     rent: [10, 50, 150, 450, 625, 750],
     row: 8,
     col: 1
@@ -128,6 +135,7 @@ const properties = ref([
     title: 'Northumberland Avenue',
     class: 'purple',
     price: 160,
+    housePrice: 100,
     rent: [12, 60, 180, 500, 700, 900],
     row: 7,
     col: 1
@@ -144,6 +152,7 @@ const properties = ref([
     title: 'Bow Street',
     class: 'orange',
     price: 180,
+    housePrice: 100,
     rent: [14, 70, 200, 550, 750, 950],
     row: 5,
     col: 1
@@ -159,6 +168,7 @@ const properties = ref([
     title: 'Marlborough Street',
     class: 'orange',
     price: 180,
+    housePrice: 100,
     rent: [14, 70, 200, 550, 750, 950],
     row: 3,
     col: 1
@@ -168,6 +178,7 @@ const properties = ref([
     title: 'Vine Street',
     class: 'orange',
     price: 200,
+    housePrice: 100,
     rent: [16, 80, 220, 600, 800, 1000],
     row: 2,
     col: 1
@@ -183,6 +194,7 @@ const properties = ref([
     title: 'The Strand',
     class: 'red',
     price: 220,
+    housePrice: 150,
     rent: [18, 90, 250, 700, 875, 1050],
     row: 1,
     col: 2
@@ -198,6 +210,7 @@ const properties = ref([
     title: 'Fleet Street',
     class: 'red',
     price: 220,
+    housePrice: 150,
     rent: [18, 90, 250, 700, 875, 1050],
     row: 1,
     col: 4
@@ -207,6 +220,7 @@ const properties = ref([
     title: 'Trafalgar Square',
     class: 'red',
     price: 240,
+    housePrice: 150,
     rent: [20, 100, 300, 750, 925, 1100],
     row: 1,
     col: 5
@@ -223,6 +237,7 @@ const properties = ref([
     title: 'Leicester Square',
     class: 'yellow',
     price: 260,
+    housePrice: 150,
     rent: [22, 110, 330, 800, 975, 1150],
     row: 1,
     col: 7
@@ -232,6 +247,7 @@ const properties = ref([
     title: 'Coventry Street',
     class: 'yellow',
     price: 260,
+    housePrice: 150,
     rent: [22, 110, 330, 800, 975, 1150],
     row: 1,
     col: 8
@@ -248,6 +264,7 @@ const properties = ref([
     title: 'Piccadilly',
     class: 'yellow',
     price: 280,
+    housePrice: 150,
     rent: [22, 120, 360, 850, 1025, 1200],
     row: 1,
     col: 10
@@ -263,6 +280,7 @@ const properties = ref([
     title: 'Regent Street',
     class: 'green',
     price: 300,
+    housePrice: 200,
     rent: [26, 130, 390, 900, 1100, 1275],
     row: 2,
     col: 11
@@ -272,6 +290,7 @@ const properties = ref([
     title: 'Oxford Street',
     class: 'green',
     price: 300,
+    housePrice: 200,
     rent: [26, 130, 390, 900, 1100, 1275],
     row: 3,
     col: 11
@@ -287,6 +306,7 @@ const properties = ref([
     title: 'Bond Street',
     class: 'green',
     price: 320,
+    housePrice: 200,
     rent: [28, 150, 450, 1000, 1200, 1400],
     row: 5,
     col: 11
@@ -309,6 +329,7 @@ const properties = ref([
     title: 'Park Lane',
     class: 'blue',
     price: 350,
+    housePrice: 200,
     rent: [35, 175, 500, 1100, 1300, 1500],
     row: 8,
     col: 11
@@ -324,6 +345,7 @@ const properties = ref([
     title: 'Mayfair',
     class: 'blue',
     price: 400,
+    housePrice: 200,
     rent: [50, 200, 600, 1400, 1700, 2000],
     row: 10,
     col: 11
@@ -388,7 +410,11 @@ const actions = ref([
   },
   {
     types: ['property'],
-    label: () => `Buy house for $${property.value.price / 10}`
+    label: () => `Buy house for $${property.value.housePrice}`
+  },
+  {
+    types: ['property'],
+    label: () => `Sell house for $${property.value.housePrice / 2}`
   }
 ])
 
