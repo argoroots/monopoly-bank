@@ -373,6 +373,25 @@ const players = ref([
   }
 ])
 
+const actions = ref([
+  {
+    types: ['property', 'station', 'utility'],
+    label: () => `Sell it to ${player.value.name} for $${property.value.price}`
+  },
+  {
+    types: ['property', 'station', 'utility'],
+    label: () => `Get $${property.value.rent} for rent from ${player.value.name}`
+  },
+  {
+    types: ['property', 'station', 'utility'],
+    label: () => `Mortgage property for $${property.value.price / 2}`
+  },
+  {
+    types: ['property'],
+    label: () => `Buy house for $${property.value.price / 10}`
+  }
+])
+
 const propertyId = ref()
 const playerId = ref(0)
 
@@ -424,6 +443,7 @@ watch(propertyId, (newVal) => {
           v-if="property"
           :property="property"
           :player="player"
+          :actions="actions"
         />
       </transition>
     </div>

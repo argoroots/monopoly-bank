@@ -9,29 +9,14 @@ const props = defineProps({
   player: {
     type: Object,
     default: null
+  },
+  actions: {
+    type: Array,
+    default: null
   }
 })
 
-const actions = [
-  {
-    types: ['property', 'station', 'utility'],
-    label: () => `Sell it to ${props.player.name} for $${props.property.price}`
-  },
-  {
-    types: ['property', 'station', 'utility'],
-    label: () => `Get $${props.property.rent} for rent from ${props.player.name}`
-  },
-  {
-    types: ['property', 'station', 'utility'],
-    label: () => `Mortgage property for $${props.property.price / 2}`
-  },
-  {
-    types: ['property'],
-    label: () => `Buy house for $${props.property.price / 10}`
-  }
-]
-
-const visibleActions = computed(() => actions.filter(a => a.types.includes(props.property.type)))
+const visibleActions = computed(() => props.actions.filter(a => a.types.includes(props.property.type)))
 </script>
 
 <template>
