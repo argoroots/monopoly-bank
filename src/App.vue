@@ -29,6 +29,10 @@ const dataActions = [
   {
     types: ['property', 'station', 'utility'],
     label: () => `Get $${rent.value} for rent from ${player.value.name}`,
+    action: () => {
+      player.value.money = player.value.money - rent.value
+      players.value[property.value.owner].money = player.value.money + rent.value
+    },
     hasOwner: true
   },
   {
