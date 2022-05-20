@@ -5,6 +5,8 @@
 html, body {
     @apply h-full;
     @apply bg-white;
+    @apply select-none;
+    @apply cursor-default;
 }
 
 #app {
