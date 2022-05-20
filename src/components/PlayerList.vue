@@ -45,10 +45,10 @@ const selectedId = computed({
       <div
         class="font-mono"
         :class="{
-          'text-red-700': p.money < 0
+          'text-red-700': p.balance < 0
         }"
       >
-        ${{ p.money }}
+        ${{ p.balance }}
       </div>
     </div>
   </div>

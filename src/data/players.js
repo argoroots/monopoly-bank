@@ -11,41 +11,41 @@ export const players = [
   {
     name: 'Top Hat',
     icon: HatIcon,
-    money: 1500
+    balance: 1500
   },
   {
     name: 'Battleship',
     icon: BattleshipIcon,
-    money: 1500
+    balance: 1500
   },
   {
     name: 'Race Car',
     icon: CarIcon,
-    money: 1500
+    balance: 1500
   },
   {
     name: 'Scottie Dog',
     icon: DogIcon,
-    money: 1500
+    balance: 1500
   },
   {
     name: 'Cat (Hazel)',
     icon: CatIcon,
-    money: 1500
+    balance: 1500
   },
   {
     name: 'T-Rex',
     icon: TrexIcon,
-    money: 1500
+    balance: 1500
   },
   {
     name: 'Penguin',
     icon: PenguinIcon,
-    money: 1500
+    balance: 1500
   },
   {
     name: 'Rubber Ducky',
     icon: DuckyIcon,
-    money: 1500
+    balance: 1500
   }
 ]

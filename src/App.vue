@@ -85,7 +85,7 @@ const actions = computed(() => {
     result.push({
       label: `Pay salary $${p.price} to ${u.name}`,
       action: () => {
-        u.money = u.money + p.price
+        u.balance = u.balance + p.price
       }
     })
   }
@@ -94,7 +94,7 @@ const actions = computed(() => {
     result.push({
       label: `Get tax $${p.price} from ${u.name}`,
       action: () => {
-        u.money = u.money - p.price
+        u.balance = u.balance - p.price
       }
     })
   }
@@ -102,10 +102,10 @@ const actions = computed(() => {
   if (['property', 'station', 'utility'].includes(p.type)) {
     if (p.owner === null) {
       result.push({
-        disabled: u.money < p.price,
+        disabled: u.balance < p.price,
         label: `Sell property to ${u.name} for $${p.price}`,
         action: () => {
-          u.money = u.money - p.price
+          u.balance = u.balance - p.price
           p.owner = playerId.value
         }
       })
@@ -116,8 +116,8 @@ const actions = computed(() => {
         disabled: p.mortgage,
         label: `Transfer $${rent.value} rent from ${u.name} to ${pu.name}`,
         action: () => {
-          u.money = u.money - rent.value
-          pu.money = pu.money + rent.value
+          u.balance = u.balance - rent.value
+          pu.balance = pu.balance + rent.value
         }
       })
     }
@@ -127,7 +127,7 @@ const actions = computed(() => {
         disabled: p.houses !== 0,
         label: `Mortgage property for $${p.price / 2}`,
         action: () => {
-          pu.money = pu.money + p.price / 2
+          pu.balance = pu.balance + p.price / 2
           p.mortgage = true
         }
       })
@@ -135,10 +135,10 @@ const actions = computed(() => {
 
     if (p.owner !== null && p.mortgage) {
       result.push({
-        disabled: pu.money < p.price / 2 * 1.1,
+        disabled: pu.balance < p.price / 2 * 1.1,
         label: `Lift mortgage for $${Math.round(p.price / 2 * 1.1)}`,
         action: () => {
-          pu.money = pu.money - Math.round(p.price / 2 * 1.1)
+          pu.balance = pu.balance - Math.round(p.price / 2 * 1.1)
           p.mortgage = false
         }
       })
@@ -148,10 +148,10 @@ const actions = computed(() => {
   if (p.type === 'property') {
     if (maxHouses.value >= p.houses && p.houses < 5 && p.owner !== null && !p.mortgage && playerOwnsGroup.value) {
       result.push({
-        disabled: pu.money < p.housePrice,
+        disabled: pu.balance < p.housePrice,
         label: p.houses < 4 ? `Sell house #${p.houses + 1} for $${p.housePrice}` : `Buy hotel for $${p.housePrice}`,
         action: () => {
-          pu.money = pu.money - p.housePrice
+          pu.balance = pu.balance - p.housePrice
           p.houses = p.houses + 1
         }
       })
@@ -161,7 +161,7 @@ const actions = computed(() => {
       result.push({
         label: p.houses < 5 ? `Buy back house #${p.houses} for $${p.housePrice / 2}` : `Sell hotel for $${p.housePrice / 2}`,
         action: () => {
-          pu.money = pu.money + p.housePrice / 2
+          pu.balance = pu.balance + p.housePrice / 2
           p.houses = p.houses - 1
         }
       })
