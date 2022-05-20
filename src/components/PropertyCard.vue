@@ -1,7 +1,7 @@
 <script setup>
-import { computed, defineProps } from 'vue'
+import { defineProps } from 'vue'
 
-const props = defineProps({
+defineProps({
   property: {
     type: Object,
     default: null
@@ -15,8 +15,6 @@ const props = defineProps({
     default: null
   }
 })
-
-const visibleActions = computed(() => props.actions.filter(a => a.types.includes(props.property.type)))
 </script>
 
 <template>
@@ -26,14 +24,14 @@ const visibleActions = computed(() => props.actions.filter(a => a.types.includes
     <div class="w-full h-80 p-3 bg-white shadow-lg">
       <div
         class="w-full h-full flex flex-col justify-center content-between text-center text-sm text-stone-900/80 border-2 border-stone-700 bg-white"
-        :class="property.class"
+        :class="property.group"
       >
         <div class="title w-full p-3 uppercase font-bold text-stone-700">
           {{ property.title }}
         </div>
         <div class="grow flex flex-col divide-y divide-stone-200 text-stone-500">
           <button
-            v-for="(action,idx) in visibleActions"
+            v-for="(action,idx) in actions"
             :key="idx"
             class="p-2 flex-1 hover:bg-stone-100"
           >

@@ -1,15 +1,17 @@
 export const properties = [
   {
+    owner: null,
     type: 'go',
+    group: 'corner',
     title: 'Go',
-    class: 'font-bold',
     row: 11,
     col: 11
   },
   {
+    owner: null,
     type: 'property',
+    group: 'brown',
     title: 'Old Kent Road',
-    class: 'brown',
     price: 60,
     housePrice: 50,
     rent: [2, 10, 30, 90, 160, 250],
@@ -17,15 +19,17 @@ export const properties = [
     col: 10
   },
   {
+    owner: null,
     type: 'chest',
     title: 'Community Chest',
     row: 11,
     col: 9
   },
   {
+    owner: null,
     type: 'property',
+    group: 'brown',
     title: 'Whitechapel Road',
-    class: 'brown',
     price: 60,
     housePrice: 50,
     rent: [4, 20, 60, 180, 320, 450],
@@ -33,13 +37,16 @@ export const properties = [
     col: 8
   },
   {
+    owner: null,
     type: 'tax',
     title: 'Income Tax',
     row: 11,
     col: 7
   },
   {
+    owner: null,
     type: 'station',
+    group: 'station',
     title: 'Kings Cross Station',
     price: 200,
     rent: [25, 50, 100, 200],
@@ -47,9 +54,10 @@ export const properties = [
     col: 6
   },
   {
+    owner: null,
     type: 'property',
+    group: 'sky',
     title: 'The Angel Islington',
-    class: 'sky',
     price: 100,
     housePrice: 50,
     rent: [6, 30, 90, 270, 400, 550],
@@ -57,15 +65,17 @@ export const properties = [
     col: 5
   },
   {
+    owner: null,
     type: 'chance',
     title: 'Chance',
     row: 11,
     col: 4
   },
   {
+    owner: null,
     type: 'property',
+    group: 'sky',
     title: 'Euston Road',
-    class: 'sky',
     price: 100,
     housePrice: 50,
     rent: [6, 30, 90, 270, 400, 550],
@@ -73,9 +83,10 @@ export const properties = [
     col: 3
   },
   {
+    owner: null,
     type: 'property',
+    group: 'sky',
     title: 'Pentonville Road',
-    class: 'sky',
     price: 120,
     housePrice: 50,
     rent: [8, 40, 100, 300, 450, 600],
@@ -83,15 +94,17 @@ export const properties = [
     col: 2
   },
   {
+    owner: null,
+    group: 'corner',
     title: 'Jail',
-    class: 'font-bold',
     row: 11,
     col: 1
   },
   {
+    owner: null,
     type: 'property',
+    group: 'purple',
     title: 'Pall Mall',
-    class: 'purple',
     price: 140,
     housePrice: 100,
     rent: [10, 50, 150, 450, 625, 750],
@@ -99,7 +112,9 @@ export const properties = [
     col: 1
   },
   {
+    owner: null,
     type: 'utility',
+    group: 'utility',
     title: 'Electric Company',
     price: 150,
     rent: [4, 10],
@@ -107,9 +122,10 @@ export const properties = [
     col: 1
   },
   {
+    owner: null,
     type: 'property',
+    group: 'purple',
     title: 'Whitehall',
-    class: 'purple',
     price: 140,
     housePrice: 100,
     rent: [10, 50, 150, 450, 625, 750],
@@ -117,9 +133,10 @@ export const properties = [
     col: 1
   },
   {
+    owner: null,
     type: 'property',
+    group: 'purple',
     title: 'Northumberland Avenue',
-    class: 'purple',
     price: 160,
     housePrice: 100,
     rent: [12, 60, 180, 500, 700, 900],
@@ -127,7 +144,9 @@ export const properties = [
     col: 1
   },
   {
+    owner: null,
     type: 'station',
+    group: 'station',
     title: 'Marylebone Station',
     price: 200,
     rent: [25, 50, 100, 200],
@@ -135,9 +154,10 @@ export const properties = [
     col: 1
   },
   {
+    owner: null,
     type: 'property',
+    group: 'orange',
     title: 'Bow Street',
-    class: 'orange',
     price: 180,
     housePrice: 100,
     rent: [14, 70, 200, 550, 750, 950],
@@ -145,15 +165,17 @@ export const properties = [
     col: 1
   },
   {
+    owner: null,
     type: 'chest',
     title: 'Community Chest',
     row: 4,
     col: 1
   },
   {
+    owner: null,
     type: 'property',
+    group: 'orange',
     title: 'Marlborough Street',
-    class: 'orange',
     price: 180,
     housePrice: 100,
     rent: [14, 70, 200, 550, 750, 950],
@@ -161,9 +183,10 @@ export const properties = [
     col: 1
   },
   {
+    owner: null,
     type: 'property',
+    group: 'orange',
     title: 'Vine Street',
-    class: 'orange',
     price: 200,
     housePrice: 100,
     rent: [16, 80, 220, 600, 800, 1000],
@@ -171,15 +194,17 @@ export const properties = [
     col: 1
   },
   {
+    owner: null,
+    group: 'corner',
     title: 'Free Parking',
-    class: 'font-bold',
     row: 1,
     col: 1
   },
   {
+    owner: null,
     type: 'property',
+    group: 'red',
     title: 'The Strand',
-    class: 'red',
     price: 220,
     housePrice: 150,
     rent: [18, 90, 250, 700, 875, 1050],
@@ -187,15 +212,17 @@ export const properties = [
     col: 2
   },
   {
+    owner: null,
     type: 'chance',
     title: 'Chance',
     row: 1,
     col: 3
   },
   {
+    owner: null,
     type: 'property',
+    group: 'red',
     title: 'Fleet Street',
-    class: 'red',
     price: 220,
     housePrice: 150,
     rent: [18, 90, 250, 700, 875, 1050],
@@ -203,9 +230,10 @@ export const properties = [
     col: 4
   },
   {
+    owner: null,
     type: 'property',
+    group: 'red',
     title: 'Trafalgar Square',
-    class: 'red',
     price: 240,
     housePrice: 150,
     rent: [20, 100, 300, 750, 925, 1100],
@@ -213,7 +241,9 @@ export const properties = [
     col: 5
   },
   {
+    owner: null,
     type: 'station',
+    group: 'station',
     title: 'Fenchurch St. Station',
     price: 200,
     rent: [25, 50, 100, 200],
@@ -221,9 +251,10 @@ export const properties = [
     col: 6
   },
   {
+    owner: null,
     type: 'property',
+    group: 'yellow',
     title: 'Leicester Square',
-    class: 'yellow',
     price: 260,
     housePrice: 150,
     rent: [22, 110, 330, 800, 975, 1150],
@@ -231,9 +262,10 @@ export const properties = [
     col: 7
   },
   {
+    owner: null,
     type: 'property',
+    group: 'yellow',
     title: 'Coventry Street',
-    class: 'yellow',
     price: 260,
     housePrice: 150,
     rent: [22, 110, 330, 800, 975, 1150],
@@ -241,7 +273,9 @@ export const properties = [
     col: 8
   },
   {
+    owner: null,
     type: 'utility',
+    group: 'utility',
     title: 'Water Works',
     price: 150,
     rent: [4, 10],
@@ -249,9 +283,10 @@ export const properties = [
     col: 9
   },
   {
+    owner: null,
     type: 'property',
+    group: 'yellow',
     title: 'Piccadilly',
-    class: 'yellow',
     price: 280,
     housePrice: 150,
     rent: [22, 120, 360, 850, 1025, 1200],
@@ -259,15 +294,17 @@ export const properties = [
     col: 10
   },
   {
+    owner: null,
+    group: 'corner',
     title: 'Go to Jail',
-    class: 'font-bold',
     row: 1,
     col: 11
   },
   {
+    owner: null,
     type: 'property',
+    group: 'green',
     title: 'Regent Street',
-    class: 'green',
     price: 300,
     housePrice: 200,
     rent: [26, 130, 390, 900, 1100, 1275],
@@ -275,9 +312,10 @@ export const properties = [
     col: 11
   },
   {
+    owner: null,
     type: 'property',
+    group: 'green',
     title: 'Oxford Street',
-    class: 'green',
     price: 300,
     housePrice: 200,
     rent: [26, 130, 390, 900, 1100, 1275],
@@ -285,15 +323,17 @@ export const properties = [
     col: 11
   },
   {
+    owner: null,
     type: 'chest',
     title: 'Community Chest',
     row: 4,
     col: 11
   },
   {
+    owner: null,
     type: 'property',
+    group: 'green',
     title: 'Bond Street',
-    class: 'green',
     price: 320,
     housePrice: 200,
     rent: [28, 150, 450, 1000, 1200, 1400],
@@ -301,7 +341,9 @@ export const properties = [
     col: 11
   },
   {
+    owner: null,
     type: 'station',
+    group: 'station',
     title: 'Liverpool St. Station',
     price: 200,
     rent: [25, 50, 100, 200],
@@ -309,15 +351,17 @@ export const properties = [
     col: 11
   },
   {
+    owner: null,
     type: 'chance',
     title: 'Chance',
     row: 7,
     col: 11
   },
   {
+    owner: null,
     type: 'property',
+    group: 'blue',
     title: 'Park Lane',
-    class: 'blue',
     price: 350,
     housePrice: 200,
     rent: [35, 175, 500, 1100, 1300, 1500],
@@ -325,15 +369,17 @@ export const properties = [
     col: 11
   },
   {
+    owner: null,
     type: 'tax',
     title: 'Super Tax',
     row: 9,
     col: 11
   },
   {
+    owner: null,
     type: 'property',
+    group: 'blue',
     title: 'Mayfair',
-    class: 'blue',
     price: 400,
     housePrice: 200,
     rent: [50, 200, 600, 1400, 1700, 2000],

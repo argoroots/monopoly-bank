@@ -1,60 +1,127 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 
-import { properties as dataProperties } from '@/data/properties.js'
-import { players as dataPlayers } from '@/data/players.js'
-
 import MonopolyLogo from '@/components/MonopolyLogo.vue'
 import PropertyList from '@/components/PropertyList.vue'
 import PropertyCard from '@/components/PropertyCard.vue'
 import PlayerList from '@/components/PlayerList.vue'
 
-const properties = ref(dataProperties)
-const players = ref(dataPlayers)
-const propertyId = ref()
-const playerId = ref(0)
+import { properties as dataProperties } from '@/data/properties.js'
+import { players as dataPlayers } from '@/data/players.js'
 
-const actions = ref([
+const dataActions = [
   {
     types: ['go'],
     label: () => `Pay salary $200 to ${player.value.name}`
   },
   {
     types: ['property', 'station', 'utility'],
-    label: () => `Sell it to ${player.value.name} for $${property.value.price}`
+    label: () => `Sell it to ${player.value.name} for $${property.value.price}`,
+    noOwner: true
   },
   {
     types: ['property', 'station', 'utility'],
-    label: () => `Get $${property.value.rent} for rent from ${player.value.name}`
+    label: () => `Get $${rent.value} for rent from ${player.value.name}`,
+    hasOwner: true
   },
   {
     types: ['property', 'station', 'utility'],
-    label: () => `Mortgage property for $${property.value.price / 2}`
+    label: () => `Mortgage property for $${property.value.price / 2}`,
+    hasOwner: true
   },
   {
     types: ['property'],
-    label: () => `Buy house for $${property.value.housePrice}`
+    label: () => `Buy house for $${property.value.housePrice}`,
+    hasOwner: true,
+    noHouse: true
   },
   {
     types: ['property'],
-    label: () => `Sell house for $${property.value.housePrice / 2}`
+    label: () => `Sell house for $${property.value.housePrice / 2}`,
+    hasOwner: true,
+    hasHouse: true
   }
-])
+]
 
-const property = computed(() => {
-  const p = properties.value[propertyId.value]
+const properties = ref(dataProperties)
+const players = ref(dataPlayers)
+const propertyId = ref()
+const playerId = ref(0)
+const dice = ref(12)
 
-  if (!p) {
-    return
-  }
-
-  return {
-    ...p,
-    rent: p.rent ? p.rent[p.houses || 0] : null
-  }
-})
+const property = computed(() => properties.value[propertyId.value])
 
 const player = computed(() => players.value[playerId.value])
+
+const sameGroupProperties = computed(() => {
+  if (!property.value) {
+    return null
+  }
+
+  return properties.value.filter(p => p.group === property.value.group)
+})
+
+const playerGroupProperties = computed(() => {
+  if (!property.value) {
+    return null
+  }
+
+  return sameGroupProperties.value.filter(p => p.owner !== null && p.owner === property.value.owner)
+})
+
+const playerOwnsGroup = computed(() => {
+  return sameGroupProperties.value.length === playerGroupProperties.value.length
+})
+
+const rent = computed(() => {
+  if (!property.value) {
+    return null
+  }
+
+  if (property.value.type === 'property') {
+    if (playerOwnsGroup.value) {
+      return property.value.rent[property.value.houses || 0] * 2
+    } else {
+      return property.value.rent[property.value.houses || 0]
+    }
+  }
+
+  if (property.value.type === 'station') {
+    const idx = playerGroupProperties.value.length
+    return property.value.rent[idx - 1]
+  }
+
+  if (property.value.type === 'utility') {
+    const idx = playerGroupProperties.value.length
+    return property.value.rent[idx - 1] * dice.value
+  }
+
+  return 0
+})
+
+const actions = computed(() => dataActions.filter(action => {
+  if (!action.types.includes(property.value.type)) {
+    return false
+  }
+
+  if (action.hasOwner && property.value.owner === null) {
+    return false
+  }
+
+  if (action.noOwner && property.value.owner !== null) {
+    return false
+  }
+
+  if (action.noHouse && !playerOwnsGroup.value) {
+    return false
+  }
+
+  if (action.hasHouse && playerOwnsGroup.value) {
+    return false
+  }
+
+  return true
+}))
 
 watch(playerId, (newVal) => {
   console.log('playerId', newVal)

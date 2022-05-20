@@ -45,7 +45,7 @@ const selectedId = computed({
   >
     <div
       class="w-full h-full p-2 flex justify-center items-center text-center text-sm text-stone-900/80 tracking-wide"
-      :class="p.class"
+      :class="p.group"
     >
       {{ p.title }}
     </div>
@@ -53,6 +53,10 @@ const selectedId = computed({
 </template>
 
 <style scoped>
+.corner {
+  @apply font-extrabold uppercase;
+}
+
 .brown {
   @apply border-t-8 border-amber-900;
 }
