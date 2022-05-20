@@ -376,7 +376,18 @@ const players = ref([
 const propertyId = ref()
 const playerId = ref(0)
 
-const property = computed(() => properties.value[propertyId.value])
+const property = computed(() => {
+  const p = properties.value[propertyId.value]
+
+  if (!p) {
+    return
+  }
+
+  return {
+    ...p,
+    rent: p.rent ? p.rent[p.houses || 0] : null
+  }
+})
 
 const player = computed(() => players.value[playerId.value])
 

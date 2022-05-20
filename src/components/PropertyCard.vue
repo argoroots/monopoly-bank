@@ -12,7 +12,26 @@ const props = defineProps({
   }
 })
 
-const rentSum = computed(() => props.property.rent[props.property.houses || 0])
+const actions = [
+  {
+    types: ['property', 'station', 'utility'],
+    label: () => `Sell it to ${props.player.name} for $${props.property.price}`
+  },
+  {
+    types: ['property', 'station', 'utility'],
+    label: () => `Get $${props.property.rent} for rent from ${props.player.name}`
+  },
+  {
+    types: ['property', 'station', 'utility'],
+    label: () => `Mortgage property for $${props.property.price / 2}`
+  },
+  {
+    types: ['property'],
+    label: () => `Buy house for $${props.property.price / 10}`
+  }
+]
+
+const visibleActions = computed(() => actions.filter(a => a.types.includes(props.property.type)))
 </script>
 
 <template>
@@ -28,17 +47,12 @@ const rentSum = computed(() => props.property.rent[props.property.houses || 0])
           {{ property.title }}
         </div>
         <div class="grow flex flex-col divide-y divide-stone-200 text-stone-500">
-          <button class="p-2 flex-1 hover:bg-stone-100">
-            Sell it to {{ player.name }} for ${{ property.price }}
-          </button>
-          <button class="p-2 flex-1 hover:bg-stone-100">
-            Get ${{ rentSum }} for rent from {{ player.name }}
-          </button>
-          <button class="p-2 flex-1 hover:bg-stone-100">
-            Mortgage property for ${{ property.price / 2 }}
-          </button>
-          <button class="p-2 flex-1 hover:bg-stone-100">
-            Buy house for $8
+          <button
+            v-for="(action,idx) in visibleActions"
+            :key="idx"
+            class="p-2 flex-1 hover:bg-stone-100"
+          >
+            {{ action.label() }}
           </button>
         </div>
       </div>

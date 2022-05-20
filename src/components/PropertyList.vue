@@ -19,7 +19,11 @@ const selectedId = computed({
     return props.modelValue
   },
   set (val) {
-    emit('update:modelValue', val === props.modelValue ? null : val)
+    if (val === props.modelValue || !props.properties[val].type) {
+      emit('update:modelValue')
+    } else {
+      emit('update:modelValue', val)
+    }
   }
 })
 </script>
