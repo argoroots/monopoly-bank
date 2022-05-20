@@ -42,6 +42,7 @@ export const properties = [
     type: 'station',
     title: 'Kings Cross Station',
     price: 200,
+    rent: [25, 50, 100, 200],
     row: 11,
     col: 6
   },
@@ -101,6 +102,7 @@ export const properties = [
     type: 'utility',
     title: 'Electric Company',
     price: 150,
+    rent: [4, 10],
     row: 9,
     col: 1
   },
@@ -128,6 +130,7 @@ export const properties = [
     type: 'station',
     title: 'Marylebone Station',
     price: 200,
+    rent: [25, 50, 100, 200],
     row: 6,
     col: 1
   },
@@ -213,6 +216,7 @@ export const properties = [
     type: 'station',
     title: 'Fenchurch St. Station',
     price: 200,
+    rent: [25, 50, 100, 200],
     row: 1,
     col: 6
   },
@@ -240,6 +244,7 @@ export const properties = [
     type: 'utility',
     title: 'Water Works',
     price: 150,
+    rent: [4, 10],
     row: 1,
     col: 9
   },
@@ -299,6 +304,7 @@ export const properties = [
     type: 'station',
     title: 'Liverpool St. Station',
     price: 200,
+    rent: [25, 50, 100, 200],
     row: 6,
     col: 11
   },
