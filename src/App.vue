@@ -9,52 +9,6 @@ import PlayerList from '@/components/PlayerList.vue'
 import { properties as dataProperties } from '@/data/properties.js'
 import { players as dataPlayers } from '@/data/players.js'
 
-const dataActions = [
-  {
-    types: ['go'],
-    label: () => `Pay salary $200 to ${player.value.name}`,
-    action: () => {
-      player.value.money = player.value.money + 200
-    }
-  },
-  {
-    types: ['property', 'station', 'utility'],
-    label: () => `Sell it to ${player.value.name} for $${property.value.price}`,
-    action: () => {
-      player.value.money = player.value.money - property.value.price
-      property.value.owner = playerId.value
-    },
-    noOwner: true
-  },
-  {
-    types: ['property', 'station', 'utility'],
-    label: () => `Get $${rent.value} for rent from ${player.value.name}`,
-    action: () => {
-      player.value.money = player.value.money - rent.value
-      players.value[property.value.owner].money = players.value[property.value.owner].money + rent.value
-    },
-    hasRent: true,
-    hasOwner: true
-  },
-  {
-    types: ['property', 'station', 'utility'],
-    label: () => `Mortgage property for $${property.value.price / 2}`,
-    hasOwner: true
-  },
-  {
-    types: ['property'],
-    label: () => `Buy house for $${property.value.housePrice}`,
-    hasOwner: true,
-    noHouse: true
-  },
-  {
-    types: ['property'],
-    label: () => `Sell house for $${property.value.housePrice / 2}`,
-    hasOwner: true,
-    hasHouse: true
-  }
-]
-
 const properties = ref(dataProperties)
 const players = ref(dataPlayers)
 const propertyId = ref()
@@ -111,33 +65,75 @@ const rent = computed(() => {
   return 0
 })
 
-const actions = computed(() => dataActions.filter(action => {
-  if (!action.types.includes(property.value.type)) {
-    return false
+const actions = computed(() => {
+  const p = property.value
+  const u = player.value
+  const result = []
+
+  if (p.type === 'go') {
+    result.push({
+      label: `Pay salary $200 to ${u.name}`,
+      action: () => {
+        u.money = u.money + 200
+      }
+    })
   }
 
-  if (action.hasRent && property.value.owner === playerId.value) {
-    return false
+  if (['property', 'station', 'utility'].includes(p.type)) {
+    if (p.owner === null) {
+      result.push({
+        label: `Sell it to ${u.name} for $${p.price}`,
+        action: () => {
+          u.money = u.money - p.price
+          p.owner = playerId.value
+        }
+      })
+    }
+
+    if (p.owner !== null && p.owner !== playerId.value && !p.mortgage) {
+      result.push({
+        label: `Get $${rent.value} for rent from ${u.name}`,
+        action: () => {
+          u.money = u.money - rent.value
+          players.value[p.owner].money = players.value[p.owner].money + rent.value
+        }
+      })
+    }
+
+    if (p.owner !== null && !p.mortgage) {
+      result.push({
+        label: `Mortgage property for $${p.price / 2}`,
+        action: () => {
+          players.value[p.owner].money = players.value[p.owner].money + p.price / 2
+          p.mortgage = true
+        }
+      })
+    }
+
+    if (p.owner !== null && p.mortgage) {
+      result.push({
+        label: `Pay off the mortgage $${Math.round(p.price / 2 * 1.1)}`,
+        action: () => {
+          players.value[p.owner].money = players.value[p.owner].money - Math.round(p.price / 2 * 1.1)
+          p.mortgage = false
+        }
+      })
+    }
   }
 
-  if (action.hasOwner && property.value.owner === null) {
-    return false
+  if (p.type === 'property') {
+    // result.push({
+    //   label: `Buy house for $${p.housePrice}`
+
+    // })
+    // result.push({
+    //   label: `Sell house for $${p.housePrice / 2}`
+
+    // })
   }
 
-  if (action.noOwner && property.value.owner !== null) {
-    return false
-  }
-
-  if (action.noHouse && !playerOwnsGroup.value) {
-    return false
-  }
-
-  if (action.hasHouse && playerOwnsGroup.value) {
-    return false
-  }
-
-  return true
-}))
+  return result
+})
 
 watch(playerId, (newVal) => {
   console.log('playerId', newVal)

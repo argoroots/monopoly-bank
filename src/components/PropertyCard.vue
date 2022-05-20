@@ -36,7 +36,7 @@ defineProps({
             class="p-2 flex-1 hover:bg-stone-100"
             @click="action.action"
           >
-            {{ action.label() }}
+            {{ action.label }}
           </button>
         </div>
       </div>
