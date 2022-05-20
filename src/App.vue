@@ -99,7 +99,7 @@ const actions = computed(() => {
   }
 
   if (['property', 'station', 'utility'].includes(p.type)) {
-    if (p.owner === null) {
+    if (p.owner === null && u.money >= p.price) {
       result.push({
         label: `Sell property to ${u.name} for $${p.price}`,
         action: () => {
