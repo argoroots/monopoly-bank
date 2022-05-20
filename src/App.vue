@@ -181,8 +181,9 @@ const actions = computed(() => {
 
       <div class="flex flex-col justify-center items-center">
         <monopoly-logo />
-        <h1 class="text-2xl font-bold text-stone-900/80 tracking-wide">
+        <h1 class="w-full text-2xl text-center font-bold text-stone-900/80 tracking-wide">
           Monopoly-O-Matic
+          <span class="block ml-48 italic text-sm font-thin">by Argo Roots</span>
         </h1>
       </div>
       <transition>
