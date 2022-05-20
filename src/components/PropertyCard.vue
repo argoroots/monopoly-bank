@@ -32,14 +32,24 @@ defineProps({
           {{ property.title }}
         </div>
         <div class="grow flex flex-col divide-y divide-stone-200 text-stone-500">
-          <button
+          <template
             v-for="(action,idx) in actions"
             :key="idx"
-            class="p-2 flex-1 hover:bg-stone-100"
-            @click="action.action"
           >
-            {{ action.label }}
-          </button>
+            <div
+              v-if="action.disabled"
+              class="p-2 flex-1 flex justify-center items-center text-stone-300"
+            >
+              {{ action.label }}
+            </div>
+            <button
+              v-else
+              class="p-2 flex-1 hover:bg-stone-100"
+              @click="action.action"
+            >
+              {{ action.label }}
+            </button>
+          </template>
         </div>
       </div>
     </div>
