@@ -9,10 +9,12 @@ import PlayerList from '@/components/PlayerList.vue'
 import { allProperties } from '@/data/properties.js'
 import { allPlayers } from '@/data/players.js'
 import { allChances } from '@/data/chances.js'
+import { allCommunityChests } from '@/data/communityChests.js'
 
 const properties = ref(allProperties)
 const players = ref(allPlayers)
 const chances = ref(allChances)
+const communityChests = ref(allCommunityChests)
 
 const propertyId = ref()
 const playerId = ref(0)
@@ -118,7 +120,7 @@ const actions = computed(() => {
       if (total === 0) { return }
 
       result.push({
-        label: c.label.replace('#SUM', Math.abs(c.sum)).replace('#TOTAL', Math.abs(total)).replace('#NAME', u.name),
+        label: c.label.replace('#SUM', Math.abs(c.sum)).replace('#TOTAL', Math.abs(total)).replace('#PLAYER', u.name),
         action: () => {
           if (c.type === 'chairman') {
             players.value.forEach((p, idx) => {
@@ -128,6 +130,29 @@ const actions = computed(() => {
             })
           }
 
+          u.balance -= total
+        }
+      })
+    })
+  }
+
+  if (p.type === 'chest') {
+    communityChests.value.forEach(c => {
+      const total = c.sum
+
+      switch (c.type) {
+        case 'repairs':
+          break
+        case 'chairman':
+
+          break
+      }
+
+      if (total === 0) { return }
+
+      result.push({
+        label: c.label.replace('#SUM', Math.abs(c.sum)).replace('#TOTAL', Math.abs(total)).replace('#PLAYER', u.name),
+        action: () => {
           u.balance -= total
         }
       })
