@@ -18,6 +18,8 @@ const cards = ref(allCards)
 const propertyId = ref()
 const playerId = ref(0)
 
+const selectedPlayers = computed(() => players.value.filter(p => p.selected))
+
 const property = computed(() => properties.value[propertyId.value])
 
 const player = computed(() => players.value[playerId.value])
@@ -228,7 +230,7 @@ const actions = computed(() => {
     <div class="players">
       <player-list
         v-model="playerId"
-        :players="players"
+        :players="selectedPlayers"
       />
     </div>
 
@@ -237,6 +239,7 @@ const actions = computed(() => {
         src="monopoly.svg"
         class="h-52 w-52"
       />
+
       <h1 class="w-full text-2xl text-center font-bold text-stone-900/80 tracking-wide">
         Monopoly-O-Matic
         <span class="block ml-48 italic text-sm font-thin">by <a
