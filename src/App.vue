@@ -65,14 +65,9 @@ const rent = computed(() => {
     }
   }
 
-  if (property.value.type === 'station') {
+  if (property.value.type === 'station' || property.value.type === 'utility') {
     const idx = playerGroupProperties.value.length
     return property.value.rent[idx - 1]
-  }
-
-  if (property.value.type === 'utility') {
-    const idx = playerGroupProperties.value.length
-    return property.value.rent[idx - 1] * dice.value
   }
 
   return 0
@@ -161,12 +156,14 @@ const actions = computed(() => {
     }
 
     if (p.owner !== null && p.owner !== playerId.value) {
+      const actualRent = p.type === 'utility' ? rent.value * Math.floor(Math.random() * 11) + 2 : rent.value
+
       result.push({
         disabled: p.mortgage,
-        label: `Transfer £${rent.value} rent from ${u.name} to ${pu.name}`,
+        label: `Transfer £${actualRent} rent from ${u.name} to ${pu.name}`,
         action: () => {
-          u.balance -= rent.value
-          pu.balance += rent.value
+          u.balance -= actualRent
+          pu.balance += actualRent
         }
       })
     }
