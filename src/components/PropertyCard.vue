@@ -21,9 +21,9 @@ defineProps({
   <div
     class="m-10 flex justify-center items-center"
   >
-    <div class="w-full h-80 p-3 bg-white shadow-lg">
+    <div class="w-full p-3 bg-white shadow-lg">
       <div
-        class="w-full h-full flex flex-col justify-center content-between text-center text-sm text-stone-900/80 border-2 border-stone-700 bg-white"
+        class="w-full min-h-[20rem] flex flex-col justify-center content-between text-center text-sm text-stone-900/80 border-2 border-stone-700 bg-white"
         :class="property.group"
       >
         <div
