@@ -225,25 +225,28 @@ const actions = computed(() => {
       :properties="properties"
     />
 
-    <div class="center">
+    <div class="players">
       <player-list
         v-model="playerId"
         :players="players"
       />
+    </div>
 
-      <div class="flex flex-col justify-center items-center">
-        <image-component
-          src="monopoly.svg"
-          class="h-52 w-52"
-        />
-        <h1 class="w-full text-2xl text-center font-bold text-stone-900/80 tracking-wide">
-          Monopoly-O-Matic
-          <span class="block ml-48 italic text-sm font-thin">by <a
-            class="hover:underline"
-            href="mailto:argo@roots.ee?subject=Monopoly-O-Matic"
-          >Argo Roots</a></span>
-        </h1>
-      </div>
+    <div class="center">
+      <image-component
+        src="monopoly.svg"
+        class="h-52 w-52"
+      />
+      <h1 class="w-full text-2xl text-center font-bold text-stone-900/80 tracking-wide">
+        Monopoly-O-Matic
+        <span class="block ml-48 italic text-sm font-thin">by <a
+          class="hover:underline"
+          href="mailto:argo@roots.ee?subject=Monopoly-O-Matic"
+        >Argo Roots</a></span>
+      </h1>
+    </div>
+
+    <div class="card">
       <transition>
         <property-card
           v-if="property"
@@ -263,10 +266,22 @@ const actions = computed(() => {
   grid-template-rows: repeat(11, minmax(0, 1fr));
 }
 
-.center {
-  @apply grid grid-cols-3 border border-white;
+.players {
+  @apply p-8 flex flex-col justify-center items-center border-white;
   grid-row: span 9 / span 9;
-  grid-column: span 9 / span 9;
+  grid-column: span 3 / span 3;
+}
+
+.center {
+  @apply p-8 flex flex-col justify-center items-center border-white;
+  grid-row: span 9 / span 9;
+  grid-column: span 3 / span 3;
+}
+
+.card {
+  @apply p-8 flex flex-col justify-center items-center border-white;
+  grid-row: span 9 / span 9;
+  grid-column: span 3 / span 3;
 }
 
 .v-enter-active,

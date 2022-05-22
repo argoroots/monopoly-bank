@@ -18,39 +18,35 @@ defineProps({
 </script>
 
 <template>
-  <div
-    class="m-10 flex justify-center items-center"
-  >
-    <div class="w-full p-3 bg-white shadow-lg">
+  <div class="w-full p-3 bg-white shadow-lg">
+    <div
+      class="w-full min-h-[20rem] flex flex-col justify-center content-between text-center text-sm text-stone-900/80 border-2 border-stone-700 bg-white"
+      :class="property.group"
+    >
       <div
-        class="w-full min-h-[20rem] flex flex-col justify-center content-between text-center text-sm text-stone-900/80 border-2 border-stone-700 bg-white"
-        :class="property.group"
+        class="title w-full p-3 uppercase font-bold text-stone-700"
       >
-        <div
-          class="title w-full p-3 uppercase font-bold text-stone-700"
+        {{ property.title }}
+      </div>
+      <div class="grow flex flex-col divide-y divide-stone-200 text-stone-500">
+        <template
+          v-for="(action,idx) in actions"
+          :key="idx"
         >
-          {{ property.title }}
-        </div>
-        <div class="grow flex flex-col divide-y divide-stone-200 text-stone-500">
-          <template
-            v-for="(action,idx) in actions"
-            :key="idx"
+          <div
+            v-if="action.disabled"
+            class="p-2 flex-1 flex justify-center items-center text-stone-300"
           >
-            <div
-              v-if="action.disabled"
-              class="p-2 flex-1 flex justify-center items-center text-stone-300"
-            >
-              {{ action.label }}
-            </div>
-            <button
-              v-else
-              class="p-2 flex-1 hover:bg-stone-100"
-              @click="action.action"
-            >
-              {{ action.label }}
-            </button>
-          </template>
-        </div>
+            {{ action.label }}
+          </div>
+          <button
+            v-else
+            class="p-2 flex-1 hover:bg-stone-100"
+            @click="action.action"
+          >
+            {{ action.label }}
+          </button>
+        </template>
       </div>
     </div>
   </div>
