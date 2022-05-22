@@ -1,7 +1,8 @@
 <script setup>
 import { computed, ref } from 'vue'
 
-import MonopolyLogo from '@/components/MonopolyLogo.vue'
+import ImageComponent from '@/components/ImageComponent.vue'
+
 import PropertyList from '@/components/PropertyList.vue'
 import PropertyCard from '@/components/PropertyCard.vue'
 import PlayerList from '@/components/PlayerList.vue'
@@ -16,7 +17,6 @@ const cards = ref(allCards)
 
 const propertyId = ref()
 const playerId = ref(0)
-const dice = ref(12)
 
 const property = computed(() => properties.value[propertyId.value])
 
@@ -232,10 +232,16 @@ const actions = computed(() => {
       />
 
       <div class="flex flex-col justify-center items-center">
-        <monopoly-logo />
+        <image-component
+          src="monopoly.svg"
+          class="h-52 w-52"
+        />
         <h1 class="w-full text-2xl text-center font-bold text-stone-900/80 tracking-wide">
           Monopoly-O-Matic
-          <span class="block ml-48 italic text-sm font-thin">by Argo Roots</span>
+          <span class="block ml-48 italic text-sm font-thin">by <a
+            class="hover:underline"
+            href="mailto:argo@roots.ee?subject=Monopoly-O-Matic"
+          >Argo Roots</a></span>
         </h1>
       </div>
       <transition>

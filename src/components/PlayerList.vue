@@ -1,5 +1,6 @@
 <script setup>
 import { computed, defineEmits, defineProps } from 'vue'
+import ImageComponent from '@/components/ImageComponent.vue'
 
 const emit = defineEmits(['update:modelValue'])
 
@@ -36,10 +37,10 @@ const selectedId = computed({
         }"
         @click="selectedId = idx"
       >
-        <img
+        <image-component
           :src="p.icon"
           class="h-4 w-4"
-        >
+        />
         <div class="grow ml-2">
           {{ p.name }}
         </div>
