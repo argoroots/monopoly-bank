@@ -48,7 +48,7 @@ const selectedId = computed({
           'text-red-700': p.balance < 0
         }"
       >
-        ${{ p.balance }}
+        £{{ p.balance }}
       </div>
     </div>
   </div>

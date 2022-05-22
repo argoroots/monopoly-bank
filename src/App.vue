@@ -86,7 +86,7 @@ const actions = computed(() => {
 
   if (p.type === 'go') {
     result.push({
-      label: `Pay $${p.price} salary to ${u.name}`,
+      label: `Pay £${p.price} salary to ${u.name}`,
       action: () => {
         u.balance += p.price
       }
@@ -95,7 +95,7 @@ const actions = computed(() => {
 
   if (p.type === 'jail') {
     result.push({
-      label: `Collect $${p.price} fine from ${u.name}`,
+      label: `Collect £${p.price} fine from ${u.name}`,
       action: () => {
         u.balance -= p.price
       }
@@ -141,7 +141,7 @@ const actions = computed(() => {
 
   if (p.type === 'tax') {
     result.push({
-      label: `Collect $${p.price} tax from ${u.name}`,
+      label: `Collect £${p.price} tax from ${u.name}`,
       action: () => {
         u.balance -= p.price
       }
@@ -152,7 +152,7 @@ const actions = computed(() => {
     if (p.owner === null) {
       result.push({
         disabled: u.balance < p.price,
-        label: `Sell property to ${u.name} for $${p.price}`,
+        label: `Sell property to ${u.name} for £${p.price}`,
         action: () => {
           u.balance -= p.price
           p.owner = playerId.value
@@ -163,7 +163,7 @@ const actions = computed(() => {
     if (p.owner !== null && p.owner !== playerId.value) {
       result.push({
         disabled: p.mortgage,
-        label: `Transfer $${rent.value} rent from ${u.name} to ${pu.name}`,
+        label: `Transfer £${rent.value} rent from ${u.name} to ${pu.name}`,
         action: () => {
           u.balance -= rent.value
           pu.balance += rent.value
@@ -174,7 +174,7 @@ const actions = computed(() => {
     if (p.owner !== null && !p.mortgage) {
       result.push({
         disabled: p.houses !== 0,
-        label: `Mortgage property for $${p.price / 2}`,
+        label: `Mortgage property for £${p.price / 2}`,
         action: () => {
           pu.balance += p.price / 2
           p.mortgage = true
@@ -185,7 +185,7 @@ const actions = computed(() => {
     if (p.owner !== null && p.mortgage) {
       result.push({
         disabled: pu.balance < p.price / 2 * 1.1,
-        label: `Lift mortgage for $${Math.round(p.price / 2 * 1.1)}`,
+        label: `Lift mortgage for £${Math.round(p.price / 2 * 1.1)}`,
         action: () => {
           pu.balance -= Math.round(p.price / 2 * 1.1)
           p.mortgage = false
@@ -198,7 +198,7 @@ const actions = computed(() => {
     if (avgHouses.value >= p.houses && p.houses < 5 && p.owner !== null && !p.mortgage && playerOwnsGroup.value) {
       result.push({
         disabled: pu.balance < p.housePrice,
-        label: p.houses < 4 ? `Sell house #${p.houses + 1} for $${p.housePrice}` : `Sell hotel for $${p.housePrice}`,
+        label: p.houses < 4 ? `Sell house #${p.houses + 1} for £${p.housePrice}` : `Sell hotel for £${p.housePrice}`,
         action: () => {
           pu.balance -= p.housePrice
           p.houses += 1
@@ -208,7 +208,7 @@ const actions = computed(() => {
 
     if (avgHouses.value <= p.houses && p.houses > 0 && p.owner !== null && !p.mortgage && playerOwnsGroup.value) {
       result.push({
-        label: p.houses < 5 ? `Buy back house #${p.houses} for $${p.housePrice / 2}` : `Buy back hotel for $${p.housePrice / 2}`,
+        label: p.houses < 5 ? `Buy back house #${p.houses} for £${p.housePrice / 2}` : `Buy back hotel for £${p.housePrice / 2}`,
         action: () => {
           pu.balance += p.housePrice / 2
           p.houses -= 1
