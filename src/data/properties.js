@@ -339,7 +339,7 @@ export const allProperties = [
     title: 'Piccadilly',
     price: 280,
     housePrice: 150,
-    rent: [22, 120, 360, 850, 1025, 1200],
+    rent: [24, 120, 360, 850, 1025, 1200],
     row: 1,
     col: 10
   },
