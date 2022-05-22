@@ -25,7 +25,7 @@ const selectedId = computed({
 </script>
 
 <template>
-  <div class="m-10 flex flex-col justify-center text-stone-900/80 divide-y divide-stone-900/20">
+  <div class="m-10 overflow-y-auto flex flex-col justify-center text-stone-900/80 divide-y divide-stone-900/20">
     <div
       v-for="(p, idx) in players"
       :key="idx"
