@@ -7,6 +7,7 @@ Icons from [Icons8](https://icons8.com):
 - [Battleship](https://icons8.com/icon/62846/battleship)
 - [Cannon](https://icons8.com/icon/116965/cannon)
 - [Dinosaur](https://icons8.com/icon/103358/dinosaur)
+- [Edit](https://icons8.com/icon/71201/edit)
 - [F1 Car](https://icons8.com/icon/62504/f1-car)
 - [Footwear](https://icons8.com/icon/110516/footwear)
 - [Horseback Riding](https://icons8.com/icon/71279/horseback-riding)
@@ -22,4 +23,4 @@ Icons from [Icons8](https://icons8.com):
 - [Thimble](https://icons8.com/icon/7MpMfY1aAE8Y/thimble)
 - [Top Hat](https://icons8.com/icon/123919/top-hat)
 - [Top Hat](https://icons8.com/icon/TuoZ6pTmiTRp/top-hat)
-- [Wheelbarrow](https://icons8.com/icon/108273/wheelbarrow)
+- [Users](https://icons8.com/icon/102261/users)

@@ -6,6 +6,7 @@ import ImageComponent from '@/components/ImageComponent.vue'
 import PropertyList from '@/components/PropertyList.vue'
 import PropertyCard from '@/components/PropertyCard.vue'
 import PlayerList from '@/components/PlayerList.vue'
+import PlayerListEdit from '@/components/PlayerListEdit.vue'
 
 import { allProperties } from '@/data/properties.js'
 import { allPlayers } from '@/data/players.js'
@@ -17,6 +18,7 @@ const cards = ref(allCards)
 
 const propertyId = ref()
 const playerId = ref(0)
+const editPlayers = ref(false)
 
 const selectedPlayers = computed(() => players.value.filter(p => p.selected))
 
@@ -221,6 +223,18 @@ const actions = computed(() => {
 </script>
 
 <template>
+  <transition>
+    <div
+      v-if="editPlayers"
+      class="players-edit"
+    >
+      <player-list-edit
+        v-model="players"
+        @close="editPlayers = false"
+      />
+    </div>
+  </transition>
+
   <div class="board">
     <property-list
       v-model="propertyId"
@@ -232,6 +246,15 @@ const actions = computed(() => {
         v-model="playerId"
         :players="selectedPlayers"
       />
+      <button
+        class="mt-2 py-1 px-2 pr-3 box-content flex flex-row justify-between items-center text-sm text-stone-900/70 border border-transparent hover:border-stone-900/20 rounded-sm active:bg-emerald-50"
+        @click="editPlayers = true"
+      >
+        <image-component
+          src="edit.png"
+          class="h-3 w-3 mr-2"
+        /> Edit
+      </button>
     </div>
 
     <div class="center">
@@ -242,7 +265,7 @@ const actions = computed(() => {
 
       <h1 class="w-full text-2xl text-center font-bold text-stone-900/80 tracking-wide">
         Monopoly-O-Matic
-        <span class="block ml-48 italic text-sm font-thin">by <a
+        <span class="block italic text-right text-sm font-thin">by <a
           class="hover:underline"
           href="mailto:argo@roots.ee?subject=Monopoly-O-Matic"
         >Argo Roots</a></span>
@@ -273,6 +296,10 @@ const actions = computed(() => {
   @apply p-8 flex flex-col justify-center items-center border-white;
   grid-row: span 9 / span 9;
   grid-column: span 3 / span 3;
+}
+
+.players-edit {
+  @apply absolute inset-0 z-10 backdrop-blur-lg;
 }
 
 .center {
