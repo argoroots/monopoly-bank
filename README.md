@@ -24,3 +24,4 @@ Icons from [Icons8](https://icons8.com):
 - [Top Hat](https://icons8.com/icon/123919/top-hat)
 - [Top Hat](https://icons8.com/icon/TuoZ6pTmiTRp/top-hat)
 - [Users](https://icons8.com/icon/102261/users)
+- [Wheelbarrow](https://icons8.com/icon/108273/wheelbarrow)

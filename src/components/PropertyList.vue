@@ -30,18 +30,18 @@ const selectedId = computed({
 
 <template>
   <div
-    v-for="(p, idx) in properties"
-    :key="idx"
+    v-for="p in properties"
+    :key="p.id"
     class="border border-white"
     :class="{
-      'bg-emerald-50': selectedId === idx,
+      'bg-emerald-50': selectedId === p.id,
       'cursor-pointer hover:bg-emerald-50': p.type
     }"
     :style="{
       'grid-row': p.row,
       'grid-column': p.col,
     }"
-    @click="selectedId = idx"
+    @click="selectedId = p.id"
   >
     <div
       class="w-full h-full p-2 flex justify-center items-center text-center text-sm text-stone-900/80 tracking-wide"

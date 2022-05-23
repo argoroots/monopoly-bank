@@ -27,8 +27,8 @@ const players = computed({
   >
     <div class="py-4 grow w-full text-stone-900/80 divide-y divide-stone-900/20 overflow-y-auto">
       <div
-        v-for="(p, idx) in players"
-        :key="idx"
+        v-for="p in players"
+        :key="p.id"
         class="mx-4 py-2 px-1 flex flex-row justify-between items-center"
       >
         <input

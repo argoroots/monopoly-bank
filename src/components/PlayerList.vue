@@ -28,13 +28,13 @@ const selectedId = computed({
 <template>
   <div class="w-full max-h-max text-stone-900/80 divide-y divide-stone-900/20 overflow-y-auto">
     <div
-      v-for="(p, idx) in players"
-      :key="idx"
+      v-for="p in players"
+      :key="p.id"
       class="py-2 px-1 flex flex-row justify-between items-center hover:bg-emerald-50 cursor-pointer"
       :class="{
-        'bg-emerald-50': selectedId === idx
+        'bg-emerald-50': selectedId === p.id
       }"
-      @click="selectedId = idx"
+      @click="selectedId = p.id"
     >
       <image-component
         :src="p.icon"

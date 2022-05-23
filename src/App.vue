@@ -12,19 +12,19 @@ import { allProperties } from '@/data/properties.js'
 import { allPlayers } from '@/data/players.js'
 import { allCards } from '@/data/cards.js'
 
-const properties = ref(allProperties)
-const players = ref(allPlayers)
-const cards = ref(allCards)
+const properties = ref(allProperties.map((p, idx) => ({ id: idx, ...p })))
+const players = ref(allPlayers.map((p, idx) => ({ id: idx, ...p })))
+const cards = ref(allCards.map((c, idx) => ({ id: idx, ...c })))
 
 const propertyId = ref()
-const playerId = ref(0)
+const playerId = ref(1)
 const editPlayers = ref(false)
 
 const selectedPlayers = computed(() => players.value.filter(p => p.selected))
 
-const property = computed(() => properties.value[propertyId.value])
+const property = computed(() => properties.value.find(p => p.id === propertyId.value))
 
-const player = computed(() => players.value[playerId.value])
+const player = computed(() => players.value.find(p => p.id === playerId.value))
 
 const sameGroupProperties = computed(() => {
   if (!property.value) {
@@ -124,8 +124,8 @@ const actions = computed(() => {
               break
 
             case 'birthday':
-              players.value.forEach((p, idx) => {
-                if (idx !== playerId.value) {
+              players.value.forEach(p => {
+                if (p.id !== playerId.value) {
                   p.balance -= c.sum
                 }
               })

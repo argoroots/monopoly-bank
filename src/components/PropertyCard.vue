@@ -30,21 +30,21 @@ defineProps({
       </div>
       <div class="grow flex flex-col divide-y divide-stone-200 text-stone-500">
         <template
-          v-for="(action,idx) in actions"
-          :key="idx"
+          v-for="a in actions"
+          :key="a.id"
         >
           <div
-            v-if="action.disabled"
+            v-if="a.disabled"
             class="p-2 flex-1 flex justify-center items-center text-stone-300"
           >
-            {{ action.label }}
+            {{ a.label }}
           </div>
           <button
             v-else
             class="p-2 flex-1 hover:bg-stone-100"
-            @click="action.action"
+            @click="a.action"
           >
-            {{ action.label }}
+            {{ a.label }}
           </button>
         </template>
       </div>
