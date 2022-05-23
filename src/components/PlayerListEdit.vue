@@ -2,7 +2,7 @@
 import { computed, defineEmits, defineProps } from 'vue'
 import ImageComponent from '@/components/ImageComponent.vue'
 
-const emit = defineEmits(['update:modelValue', 'close'])
+const emit = defineEmits(['update:modelValue', 'reset', 'close'])
 
 const props = defineProps({
   modelValue: {
@@ -55,6 +55,12 @@ const players = computed({
       @click="emit('close')"
     >
       Close
+    </button>
+    <button
+      class=" mx-4 mb-4 py-1 px-2 pr-3 text-center text-sm text-red-700 border border-transparent hover:border-stone-900/20 rounded-sm active:bg-stone-50"
+      @click="emit('reset')"
+    >
+      Reset Game
     </button>
   </div>
 </template>

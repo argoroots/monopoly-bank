@@ -229,6 +229,13 @@ watch(players.value, () => {
   setData('players', players.value)
 })
 
+function onReset () {
+  setData('properties')
+  setData('players')
+
+  location.reload()
+}
+
 function getData (key) {
   const data = localStorage.getItem(key)
 
@@ -254,6 +261,7 @@ function setData (key, data) {
     >
       <player-list-edit
         v-model="players"
+        @reset="onReset"
         @close="editPlayers = false"
       />
     </div>
