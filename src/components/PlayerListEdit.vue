@@ -29,7 +29,13 @@ const players = computed({
   <div
     class="absolute h-full left-1/2 transform -translate-x-1/2 shadow-md bg-white flex flex-col z-30"
   >
-    <div class="py-4 grow w-full text-stone-900/80 divide-y divide-stone-900/20 overflow-y-auto">
+    <button
+      class="absolute top-0 right-0 p-2 justify-self-end text-xs text-stone-900/70"
+      @click="emit('close')"
+    >
+      close
+    </button>
+    <div class="mt-10 my-4 grow w-full text-stone-900/80 divide-y divide-stone-900/20 overflow-y-auto">
       <div
         v-for="p in players"
         :key="p.id"
@@ -51,13 +57,7 @@ const players = computed({
       </div>
     </div>
     <button
-      class="m-4 py-1 px-2 pr-3 text-center text-sm text-stone-900/70 border border-transparent hover:border-stone-900/20 rounded-sm active:bg-stone-50"
-      @click="emit('close')"
-    >
-      Close
-    </button>
-    <button
-      class=" mx-4 mb-4 py-1 px-2 pr-3 text-center text-sm text-red-700 border border-transparent hover:border-stone-900/20 rounded-sm active:bg-stone-50"
+      class="mx-4 mb-4 py-1 px-2 pr-3 text-center text-sm text-red-700 border border-transparent hover:border-stone-900/20 rounded-sm active:bg-stone-50"
       @click="emit('reset')"
     >
       Reset Game
