@@ -23,7 +23,11 @@ const players = computed({
 
 <template>
   <div
-    class="h-full w-80 mx-auto shadow-md bg-white flex flex-col"
+    class="absolute h-full w-full z-20 backdrop-blur-lg"
+    @click="emit('close')"
+  />
+  <div
+    class="absolute h-full left-1/2 transform -translate-x-1/2 shadow-md bg-white flex flex-col z-30"
   >
     <div class="py-4 grow w-full text-stone-900/80 divide-y divide-stone-900/20 overflow-y-auto">
       <div

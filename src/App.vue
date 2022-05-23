@@ -263,7 +263,7 @@ const actions = computed(() => {
         class="h-52 w-52"
       />
 
-      <h1 class="w-full text-2xl text-center font-bold text-stone-900/80 tracking-wide">
+      <h1 class="w-max text-2xl text-center font-bold text-stone-900/80 tracking-wide">
         Monopoly-O-Matic
         <span class="block italic text-right text-sm font-thin">by <a
           class="hover:underline"
@@ -299,7 +299,7 @@ const actions = computed(() => {
 }
 
 .players-edit {
-  @apply absolute inset-0 z-10 backdrop-blur-lg;
+  @apply absolute inset-0;
 }
 
 .center {
