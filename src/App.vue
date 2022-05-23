@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 import ImageComponent from '@/components/ImageComponent.vue'
 
@@ -12,9 +12,9 @@ import { allProperties } from '@/data/properties.js'
 import { allPlayers } from '@/data/players.js'
 import { allCards } from '@/data/cards.js'
 
-const properties = ref(allProperties.map((p, idx) => ({ id: idx, ...p })))
-const players = ref(allPlayers.map((p, idx) => ({ id: idx, ...p })))
-const cards = ref(allCards.map((c, idx) => ({ id: idx, ...c })))
+const properties = ref(getData('properties') || allProperties.map((p, idx) => ({ id: idx, ...p })))
+const players = ref(getData('players') || allPlayers.map((p, idx) => ({ id: idx, ...p })))
+const cards = ref(getData('cards') || allCards.map((c, idx) => ({ id: idx, ...c })))
 
 const propertyId = ref()
 const playerId = ref(1)
@@ -220,6 +220,30 @@ const actions = computed(() => {
 
   return result
 })
+
+watch(properties.value, () => {
+  setData('properties', properties.value)
+})
+
+watch(players.value, () => {
+  setData('players', players.value)
+})
+
+function getData (key) {
+  const data = localStorage.getItem(key)
+
+  if (data) {
+    return JSON.parse(data)
+  }
+}
+
+function setData (key, data) {
+  if (data) {
+    localStorage.setItem(key, JSON.stringify(data))
+  } else {
+    localStorage.removeItem(key)
+  }
+}
 </script>
 
 <template>
