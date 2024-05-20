@@ -160,7 +160,7 @@ const actions = computed(() => {
     }
 
     if (p.owner !== null && p.owner !== playerId.value) {
-      const actualRent = p.type === 'utility' ? rent.value * Math.floor(Math.random() * 11) + 2 : rent.value
+      const actualRent = p.type === 'utility' ? rent.value * twoDiceRandom() : rent.value
 
       result.push({
         disabled: p.mortgage,
@@ -250,6 +250,10 @@ function setData (key, data) {
   } else {
     localStorage.removeItem(key)
   }
+}
+
+function twoDiceRandom () {
+  return Math.floor(Math.random() * 6) + 1 + Math.floor(Math.random() * 6) + 1
 }
 </script>
 
