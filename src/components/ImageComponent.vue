@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, watchEffect } from 'vue'
+import { computed, defineProps } from 'vue'
 
 const props = defineProps({
   src: {
@@ -8,20 +8,7 @@ const props = defineProps({
   }
 })
 
-const image = ref()
-
-watchEffect(async () => {
-  const srcArray = props.src.split('.')
-
-  switch (srcArray[1]) {
-    case 'png':
-      image.value = (await import(/* @vite-ignore */ `../assets/images/${srcArray[0]}.png`)).default
-      break
-    case 'svg':
-      image.value = (await import(/* @vite-ignore */ `../assets/images/${srcArray[0]}.svg`)).default
-      break
-  }
-})
+const image = computed(() =>new URL(`../assets/images/${props.src}`, import.meta.url).href)
 </script>
 
 <template>
