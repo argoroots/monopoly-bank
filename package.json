@@ -5,6 +5,7 @@
   "description": "Monopoly-O-Matic site",
   "author": "Argo Roots <argo@roots.ee>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
